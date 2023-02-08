@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Testing2
+namespace TestingStaff
 {
     [TestClass]
     public class tstStaff
