@@ -1,19 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using ClassLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace TestingSupplier
 {
     [TestClass]
-    public class UnitTest1Supplier
+    public class tstSupplier
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
-
-
-
-
         [TestMethod]
         public void InstanceOK()
         {
