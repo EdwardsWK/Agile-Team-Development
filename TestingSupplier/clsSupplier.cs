@@ -1,0 +1,6 @@
+﻿namespace TestingSupplier
+{
+    class clsSupplier
+    {
+    }
+}
