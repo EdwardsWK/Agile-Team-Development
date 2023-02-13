@@ -1,6 +1,0 @@
-﻿namespace TestingSupplier
-{
-    class clsSupplier
-    {
-    }
-}
