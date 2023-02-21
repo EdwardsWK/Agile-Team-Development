@@ -69,16 +69,16 @@ namespace TestingOrder
         }
 
         [TestMethod]
-        public void ProductNamePropertyOK()
+        public void OrderNotesPropertyOK()
         {
             // Create an instance of the order class
             clsOrder AnOrder = new clsOrder();
             // Create some test data
-            String TestData = "Dell Inspiron Gaming PC";
+            String TestData = "This is some test data to test the field works correctly";
             // Assign the data to the property
-            AnOrder.ProductName = TestData;
+            AnOrder.OrderNotes = TestData;
             // Test to see that the two values are the same
-            Assert.AreEqual(AnOrder.ProductName, TestData);
+            Assert.AreEqual(AnOrder.OrderNotes, TestData);
         }
 
         [TestMethod]
