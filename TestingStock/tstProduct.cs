@@ -113,7 +113,191 @@ namespace TestingStock
             Assert.AreEqual(Product.Available, TestProduct);
         }
 
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            // Create an instance of the ProductNo Class
+            clsProduct Product = new clsProduct();
 
+            // Boolean variable to store the results of the validation
+            Boolean Found = false;
 
+            // Create some test data to use with the method
+            Int32 ProductID = 1;
+
+            // Invoke the method
+            Found = Product.Find(ProductID);
+
+            // Test to see if the result is true
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestProductIDFound()
+        {
+            // Create an instance of the ProductNo Class
+            clsProduct Product = new clsProduct();
+
+            // Boolean variable to store the results of the validation
+            Boolean Found = false;
+
+            // Boolean variable to record if data is ok (Assume that it is)
+            Boolean OK = true;
+
+            // Create some test data to use with the method
+            Int32 ProductID = 1;
+
+            // Invoke the method
+            Found = Product.Find(ProductID);
+
+            // Check the ProductID
+            if (Product.ProductID != 1)
+            {
+                OK = false;
+            }
+
+            // Test to see if the result is true
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestProductNameFound()
+        {
+            // Create an instance of the ProductNo Class
+            clsProduct Product = new clsProduct();
+
+            // Boolean variable to store the results of the validation
+            Boolean Found = false;
+
+            // Boolean variable to record if data is ok (Assume that it is)
+            Boolean OK = true;
+
+            // Create some test data to use with the method
+            int ProductID = 1;
+
+            // Invoke the method
+            Found = Product.Find(ProductID);
+
+            // Check the Product Name
+            if (Product.ProductName != "Acer" )
+            {
+                OK = false;
+            }
+
+            // Test to see if the result is true
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestDateAddedFound()
+        {
+            // Create an instance of the ProductNo Class
+            clsProduct Product = new clsProduct();
+
+            // Boolean variable to store the results of the validation
+            Boolean Found = false;
+
+            // Boolean variable to record if data is ok (Assume that it is)
+            Boolean OK = true;
+
+            // Create some test data to use with the method
+            int ProductID = 1;
+
+            // Invoke the method
+            Found = Product.Find(ProductID);
+
+            // Check the Product DateAdded
+            if (Product.DateAdded != Convert.ToDateTime("12/12/2001"))
+            {
+                OK = false;
+            }
+
+            // Test to see if the result is true
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestStockCountFound()
+        {
+            // Create an instance of the ProductNo Class
+            clsProduct Product = new clsProduct();
+
+            // Boolean variable to store the results of the validation
+            Boolean Found = false;
+
+            // Boolean variable to record if data is ok (Assume that it is)
+            Boolean OK = true;
+
+            // Create some test data to use with the method
+            int ProductID = 1;
+
+            // Invoke the method
+            Found = Product.Find(ProductID);
+
+            // Check the Product Stock Count
+            if (Product.StockCount != 5)
+            {
+                OK = false;
+            }
+
+            // Test to see if the result is true
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestPriceFound()
+        {
+            // Create an instance of the ProductNo Class
+            clsProduct Product = new clsProduct();
+
+            // Boolean variable to store the results of the validation
+            Boolean Found = false;
+
+            // Boolean variable to record if data is ok (Assume that it is)
+            Boolean OK = true;
+
+            // Create some test data to use with the method
+            int ProductID = 1;
+
+            // Invoke the method
+            Found = Product.Find(ProductID);
+
+            // Check the Product Price
+            if (Product.Price != (float)Convert.ToDouble(199.99))
+            {
+                OK = false;
+            }
+
+            // Test to see if the result is true
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestAvailableFound()
+        {
+            // Create an instance of the ProductNo Class
+            clsProduct Product = new clsProduct();
+
+            // Boolean variable to store the results of the validation
+            Boolean Found = false;
+
+            // Boolean variable to record if data is ok (Assume that it is)
+            Boolean OK = true;
+
+            // Create some test data to use with the method
+            int ProductID = 1;
+
+            // Invoke the method
+            Found = Product.Find(ProductID);
+
+            // Check the Product Name
+            if (Product.Available != true)
+            {
+                OK = false;
+            }
+
+            // Test to see if the result is true
+            Assert.IsTrue(Found);
+        }
     }
 }
