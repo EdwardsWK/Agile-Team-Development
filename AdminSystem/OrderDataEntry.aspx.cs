@@ -13,7 +13,7 @@ public partial class _Order_DataEntry : System.Web.UI.Page
 
     }
 
-    protected void btnOK_Click(object sender, EventArgs e)
+    protected void btnConfirm_Click(object sender, EventArgs e)
     {
         // Create a new instance of clsOrder
         clsOrder AnOrder = new clsOrder();
