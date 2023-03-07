@@ -11,8 +11,8 @@ namespace TestingOrder
         public void InstanceOK()
         {
             // Create an instance of the order class
-
             clsOrder AnOrder = new clsOrder();
+
             // Test to see that it exists
             Assert.IsNotNull(AnOrder);
         }

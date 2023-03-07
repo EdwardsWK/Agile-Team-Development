@@ -18,78 +18,91 @@ namespace TestingReview
         public void ReviewIDPropertyOK()
         {
             // Create an instance of the Review class
-            clsReview Areview = new clsReview();
+            clsReview AReview = new clsReview();
             // Create some test data
             Int32 TestData = 1;
             // Assign the data to the property
-            Areview.OrderID = TestData;
+            AReview.ReviewID = TestData;
             // Test to see that the two values are the same
-            Assert.AreEqual(Areview.OrderID, TestData);
+            Assert.AreEqual(AReview.ReviewID, TestData);
         }
 
         [TestMethod]
-        public void isOrderPlacedOK()
+        public void ProductIDPropertyOK()
         {
             // Create an instance of the Review class
-            Areview Areview = new Areview();
+            clsReview AReview = new clsReview();
+            // Create some test data
+            Int32 TestData = 1;
+            // Assign the data to the property
+            AReview.ProductID = TestData;
+            // Test to see that the two values are the same
+            Assert.AreEqual(AReview.ProductID, TestData);
+        }
+
+        [TestMethod]
+        public void CustomerIDPropertyOK()
+        {
+            // Create an instance of the Review class
+            clsReview AReview = new clsReview();
+            // Create some test data
+            Int32 TestData = 1;
+            // Assign the data to the property
+            AReview.CustomerID = TestData;
+            // Test to see that the two values are the same
+            Assert.AreEqual(AReview.CustomerID, TestData);
+        }
+
+        [TestMethod]
+        public void ReviewDatePropertyOK()
+        {
+            // Create an instance of the Review class
+            clsReview AReview = new clsReview();
             // Create some test data
             DateTime TestData = DateTime.Now;
             // Assign the data to the property
-            Areview.OrderPlaced = TestData;
+            AReview.ReviewDate = TestData;
             // Test to see that the two values are the same
-            Assert.AreEqual(Areview.OrderPlaced, TestData);
+            Assert.AreEqual(AReview.ReviewDate, TestData);
         }
 
         [TestMethod]
-        public void isCustomerIDOK()
+        public void CommentsPropertyOK()
         {
             // Create an instance of the Review class
-            Areview Areview = new Areview();
+            clsReview AReview = new clsReview();
             // Create some test data
-            Int32 TestData = 1;
+            String TestData = "Test data";
             // Assign the data to the property
-            Areview.CustomerID = TestData;
+            AReview.Comments = TestData;
             // Test to see that the two values are the same
-            Assert.AreEqual(Areview.CustomerID, TestData);
+            Assert.AreEqual(AReview.Comments, TestData);
         }
 
         [TestMethod]
-        public void isProductIDOK()
+        public void RatingPropertyOK()
         {
             // Create an instance of the Review class
-            Areview Areview = new Areview();
+            clsReview AReview = new clsReview();
             // Create some test data
-            Int32 TestData = 1;
+            Int32 TestData = 5;
             // Assign the data to the property
-            Areview.ProductID = TestData;
+            AReview.Rating = TestData;
             // Test to see that the two values are the same
-            Assert.AreEqual(Areview.ProductID, TestData);
+            Assert.AreEqual(AReview.Rating, TestData);
         }
 
         [TestMethod]
-        public void isOrderTotalOK()
+        public void ApprovedPropertyOK()
         {
             // Create an instance of the Review class
-            Areview Areview = new Areview();
-            // Create some test data
-            Double TestData = 1725.99;
-            // Assign the data to the property
-            Areview.OrderTotal = TestData;
-            // Test to see that the two values are the same
-            Assert.AreEqual(Areview.OrderTotal, TestData);
-        }
-
-        [TestMethod]
-        public void isOrderCompleted()
-        {
-            // Create an instance of the Review class
-            Areview Areview = new Areview();
+            clsReview AReview = new clsReview();
             // Create some test data
             Boolean TestData = false;
             // Assign the data to the property
-            Areview.OrderCompleted = TestData;
+            AReview.Approved = TestData;
             // Test to see that the two values are the same
-            Assert.AreEqual(Areview.OrderCompleted, TestData);
+            Assert.AreEqual(AReview.Approved, TestData);
         }
 
     }
