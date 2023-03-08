@@ -32,4 +32,31 @@ public partial class _Stock_DataEntry : System.Web.UI.Page
         // Navigate to the viewer page
         Response.Redirect("StockViewer.aspx");
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        // Create an instance of the address class
+        clsProduct Product = new clsProduct();
+        // Variable to store the primary key
+        Int32 ProductID;
+        // Variable to store the result of the find operation
+        Boolean Found = false;
+        // Get the primary key entered by the user
+        ProductID = Convert.ToInt32(txtProductID.Text);
+        // Find the record
+        Found = Product.Find(ProductID);
+        // If found
+        if (Found == true)
+        {
+            // Display the values of the properties in the form
+            txtProductID.Text = Product.ProductID.ToString();
+            txtProductName.Text = Product.ProductName;
+            txtDateAdded.Text = Product.DateAdded.ToString();
+            txtStockCount.Text = Product.StockCount.ToString();
+            txtPrice.Text = Product.Price.ToString();
+            chkAvailable.Checked = Product.Available; 
+
+        }
+
+    }
 }
