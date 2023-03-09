@@ -7,6 +7,13 @@ namespace TestingStock
     [TestClass]
     public class tstProduct
     {
+        // Some safe, good test data...
+        string ProductName = "Acer Test Data";
+        DateTime DateAdded = Convert.ToDateTime("12/12/2001");
+        int StockCount = 4;
+        float Price = 599.99f;
+        Boolean Available = true;
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -298,6 +305,21 @@ namespace TestingStock
 
             // Test to see if the result is true
             Assert.IsTrue(Found);
+        }
+
+        public void ValidMethodOK()
+        {
+            // Create an instance of the class we want to create
+            clsProduct Product = new clsProduct();
+
+            // String varialble to store any error message
+            String Error = "";
+
+            // Invoke the method
+            Error = Product.Valid(ProductName, DateAdded, StockCount, Price);
+
+            // Test to see that the result is correct
+            Assert.AreEqual(Error, "");
         }
     }
 }

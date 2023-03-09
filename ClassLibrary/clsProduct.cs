@@ -141,5 +141,10 @@ namespace ClassLibrary
             //return true;
 
         }
+
+        public string Valid(string productName, DateTime dateAdded, int stockCount, float price)
+        {
+            return "";
+        }
     }
 }
