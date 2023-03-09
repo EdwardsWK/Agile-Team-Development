@@ -80,7 +80,7 @@ namespace TestingSupplier
             //create an instance of their class we want to create
             clsSupplier ASupplier = new clsSupplier();
             //create some test data to assign to the property
-            Int32 TestData = "Test";
+            Int32 TestData = 1;
             //assign the data to the property
             ASupplier.SupplierNumber = TestData;
             //test to see that the two values are the same
