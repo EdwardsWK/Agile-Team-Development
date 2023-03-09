@@ -14,7 +14,8 @@ namespace TestingSupplier
             Assert.IsNotNull(AnSupplier);
         }
 
-        public void SupplierIdOK()
+        [TestMethod]
+        public void SupplierIDPropertyOK()
         {
 
             //create an instance of their class we want to create
@@ -22,11 +23,12 @@ namespace TestingSupplier
             //create some test data to assign to the property
             String TestData = "Test";
             //assign the data to the property
-            ASupplier.SupplierId = TestData;
+            ASupplier.SupplierID = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(ASupplier.SupplierId, TestData);
+            Assert.AreEqual(ASupplier.SupplierID, TestData);
         }
-        public void SupplierNameIdOK()
+        [TestMethod]
+        public void SupplierNamePropertyOK()
         {
 
             //create an instance of their class we want to create
@@ -38,7 +40,8 @@ namespace TestingSupplier
             //test to see that the two values are the same
             Assert.AreEqual(ASupplier.SupplierName, TestData);
         }
-        public void SupplierAddressOK()
+        [TestMethod]
+        public void SupplierAddressPropertyOK()
         {
 
             //create an instance of their class we want to create
@@ -50,7 +53,8 @@ namespace TestingSupplier
             //test to see that the two values are the same
             Assert.AreEqual(ASupplier.SupplierAddress, TestData);
         }
-        public void ContactDateOK()
+        [TestMethod]
+        public void ContactDatePropertyOK()
         {
 
             //create an instance of their class we want to create
@@ -62,7 +66,8 @@ namespace TestingSupplier
             //test to see that the two values are the same
             Assert.AreEqual(ASupplier.ContactDate, TestData);
         }
-        public void EmailAddressOK()
+        [TestMethod]
+        public void EmailAddressPropertyOK()
         {
 
             //create an instance of their class we want to create
@@ -74,19 +79,21 @@ namespace TestingSupplier
             //test to see that the two values are the same
             Assert.AreEqual(ASupplier.EmailAddress, TestData);
         }
-        public void SupplierNumberOK()
+        [TestMethod]
+        public void SupplierNumberPropertyOK()
         {
 
             //create an instance of their class we want to create
             clsSupplier ASupplier = new clsSupplier();
             //create some test data to assign to the property
-            Int32 TestData = "Test";
+            Int32 TestData = 1;
             //assign the data to the property
             ASupplier.SupplierNumber = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(ASupplier.SupplierNumber, TestData);
         }
-        public void CurrentSupplierOK()
+        [TestMethod]
+        public void CurrentSupplierPropertyOK()
         {
 
             //create an instance of their class we want to create
