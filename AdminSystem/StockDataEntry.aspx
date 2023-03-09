@@ -25,6 +25,7 @@
         <asp:CheckBox ID="chkAvailable" runat="server" style="z-index: 1; left: 118px; top: 115px; position: absolute" Text="Tick for True | Leave unticked for false" />
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 11px; top: 155px; position: absolute" Text="OK" />
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 70px; top: 156px; position: absolute" Text="Cancel" />
+        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 159px; top: 157px; position: absolute" Text="Find" />
     </form>
 </body>
 </html>

@@ -179,7 +179,7 @@ namespace TestingStock
             Found = Product.Find(ProductID);
 
             // Check the Product Name
-            if (Product.ProductName != "Acer" )
+            if (Product.ProductName != "Acer Laptop" )
             {
                 OK = false;
             }
@@ -207,7 +207,7 @@ namespace TestingStock
             Found = Product.Find(ProductID);
 
             // Check the Product DateAdded
-            if (Product.DateAdded != Convert.ToDateTime("12/12/2001"))
+            if (Product.DateAdded != Convert.ToDateTime("08/03/2023"))
             {
                 OK = false;
             }
@@ -235,7 +235,7 @@ namespace TestingStock
             Found = Product.Find(ProductID);
 
             // Check the Product Stock Count
-            if (Product.StockCount != 5)
+            if (Product.StockCount != 1)
             {
                 OK = false;
             }
@@ -263,7 +263,7 @@ namespace TestingStock
             Found = Product.Find(ProductID);
 
             // Check the Product Price
-            if (Product.Price != (float)Convert.ToDouble(199.99))
+            if (Product.Price != (float)Convert.ToDouble(499.99))
             {
                 OK = false;
             }
