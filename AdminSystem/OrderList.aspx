@@ -6,6 +6,7 @@
 <head runat="server">
     <title></title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Order List</title>
 </head>
 <body>
     <form id="form1" runat="server">
