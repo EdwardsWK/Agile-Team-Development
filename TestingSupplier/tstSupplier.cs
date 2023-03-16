@@ -23,9 +23,9 @@ namespace TestingSupplier
             //create some test data to assign to the property
             String TestData = "Test";
             //assign the data to the property
-            ASupplier.SupplierID = TestData;
+            ASupplier.SupplierNumber = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(ASupplier.SupplierID, TestData);
+            Assert.AreEqual(ASupplier.SupplierNumber, TestData);
         }
         [TestMethod]
         public void SupplierNamePropertyOK()
