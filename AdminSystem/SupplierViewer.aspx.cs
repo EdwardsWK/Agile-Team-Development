@@ -19,7 +19,7 @@ public partial class _Supplier_Viewer : System.Web.UI.Page
         Response.Write("Supplier Address: " + ASupplier.SupplierAddress + "<br>\n");
         Response.Write("Date Contracted: " + ASupplier.ContractDate + "<br>\n");
         Response.Write("Email Address: " + ASupplier.EmailAddress + "<br>\n");
-        Response.Write("Supplier Number: " + ASupplier.SupplierNumber + "<br>\n");
+        Response.Write("Telephone Number: " + ASupplier.TelephoneNo + "<br>\n");
         Response.Write("Current Supplier: " + ASupplier.CurrentSupplier + "<br>\n");
     }
 }

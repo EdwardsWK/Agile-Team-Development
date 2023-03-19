@@ -23,7 +23,7 @@ public partial class _Supplier_DataEntry : System.Web.UI.Page
         ASupplier.SupplierAddress = txtSupplierAddress.Text;
         ASupplier.ContractDate = Convert.ToDateTime(txtContractDate.Text);
         ASupplier.EmailAddress = txtEmailAddress.Text;
-        ASupplier.SupplierNumber = Convert.ToInt32(txtSupplierNumber.Text);
+        ASupplier.TelephoneNo = txtTelephoneNo.Text;
         ASupplier.CurrentSupplier = chkCurrentSupplier.Checked;
         // Store the supplier details in the session object
         Session["ASupplier"] = ASupplier;

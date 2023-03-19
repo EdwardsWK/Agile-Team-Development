@@ -12,6 +12,7 @@ namespace TestingOrder
         {
             // Create an instance of the order class
             clsOrder AnOrder = new clsOrder();
+            
             // Test to see that it exists
             Assert.IsNotNull(AnOrder);
         }
@@ -21,10 +22,13 @@ namespace TestingOrder
         {
             // Create an instance of the order class
             clsOrder AnOrder = new clsOrder();
+            
             // Create some test data
             Int32 TestData = 1;
+            
             // Assign the data to the property
             AnOrder.OrderID = TestData;
+            
             // Test to see that the two values are the same
             Assert.AreEqual(AnOrder.OrderID, TestData);
         }
@@ -34,10 +38,13 @@ namespace TestingOrder
         {
             // Create an instance of the order class
             clsOrder AnOrder = new clsOrder();
+            
             // Create some test data
             DateTime TestData = DateTime.Now;
+            
             // Assign the data to the property
             AnOrder.OrderPlaced = TestData;
+            
             // Test to see that the two values are the same
             Assert.AreEqual(AnOrder.OrderPlaced, TestData);
         }
@@ -47,10 +54,13 @@ namespace TestingOrder
         {
             // Create an instance of the order class
             clsOrder AnOrder = new clsOrder();
+            
             // Create some test data
             Int32 TestData = 1;
+            
             // Assign the data to the property
             AnOrder.CustomerID = TestData;
+            
             // Test to see that the two values are the same
             Assert.AreEqual(AnOrder.CustomerID, TestData);
         }
@@ -60,10 +70,13 @@ namespace TestingOrder
         {
             // Create an instance of the order class
             clsOrder AnOrder = new clsOrder();
+            
             // Create some test data
             Int32 TestData = 1;
+            
             // Assign the data to the property
             AnOrder.ProductID = TestData;
+            
             // Test to see that the two values are the same
             Assert.AreEqual(AnOrder.ProductID, TestData);
         }
@@ -73,10 +86,13 @@ namespace TestingOrder
         {
             // Create an instance of the order class
             clsOrder AnOrder = new clsOrder();
+            
             // Create some test data
             String TestData = "This is some test data to test the field works correctly";
+            
             // Assign the data to the property
             AnOrder.OrderNotes = TestData;
+            
             // Test to see that the two values are the same
             Assert.AreEqual(AnOrder.OrderNotes, TestData);
         }
@@ -86,10 +102,13 @@ namespace TestingOrder
         {
             // Create an instance of the order class
             clsOrder AnOrder = new clsOrder();
+            
             // Create some test data
             Double TestData = 1725.99;
+            
             // Assign the data to the property
             AnOrder.OrderTotal = TestData;
+            
             // Test to see that the two values are the same
             Assert.AreEqual(AnOrder.OrderTotal, TestData);
         }
@@ -99,10 +118,13 @@ namespace TestingOrder
         {
             // Create an instance of the order class
             clsOrder AnOrder = new clsOrder();
+            
             // Create some test data
             Boolean TestData = false;
+            
             // Assign the data to the property
             AnOrder.OrderCompleted = TestData;
+            
             // Test to see that the two values are the same
             Assert.AreEqual(AnOrder.OrderCompleted, TestData);
         }
@@ -112,12 +134,16 @@ namespace TestingOrder
         {
             // Create an instance of the order class
             clsOrder AnOrder = new clsOrder();
+            
             // Boolean variable to store the result of the validation
             Boolean Found = false;
+            
             // Create some test data to use with the method
             Int32 OrderID = 1;
+            
             // Invoke the method
             Found = AnOrder.Find(OrderID);
+            
             // Test to see if the result is true
             Assert.IsTrue(Found);
         }
@@ -127,19 +153,25 @@ namespace TestingOrder
         {
             // Create an instance of the order class
             clsOrder AnOrder = new clsOrder();
+            
             // Boolean variable to store the result of the search
             Boolean Found = false;
+            
             // Boolean variable to record if data is OK
             Boolean OK = true;
+            
             // Create some test data to use with the method
             Int32 OrderID = 1;
+            
             // Invoke the method
             Found = AnOrder.Find(OrderID);
+            
             // Check the OrderID
             if (AnOrder.OrderID != 1)
             {
                 OK = false;
             }
+            
             // Test to see if the result is correct
             Assert.IsTrue(OK);
         }
@@ -149,19 +181,25 @@ namespace TestingOrder
         {
             // Create an instance of the order class
             clsOrder AnOrder = new clsOrder();
+            
             // Boolean variable to store the result of the search
             Boolean Found = false;
+            
             // Boolean variable to record if data is OK
             Boolean OK = true;
+            
             // Create some test data to use with the method
             Int32 OrderID = 1;
+            
             // Invoke the method
             Found = AnOrder.Find(OrderID);
+            
             // Check the property
-            if (AnOrder.OrderPlaced != Convert.ToDateTime("22/03/2023 19:12:27"))
+            if (AnOrder.OrderPlaced != Convert.ToDateTime("12/03/2023 14:00:00"))
             {
                 OK = false;
             }
+            
             // Test to see if the result is correct
             Assert.IsTrue(OK);
         }
@@ -171,19 +209,25 @@ namespace TestingOrder
         {
             // Create an instance of the order class
             clsOrder AnOrder = new clsOrder();
+            
             // Boolean variable to store the result of the search
             Boolean Found = false;
+            
             // Boolean variable to record if data is OK
             Boolean OK = true;
+            
             // Create some test data to use with the method
             Int32 OrderID = 1;
+            
             // Invoke the method
             Found = AnOrder.Find(OrderID);
+            
             // Check the property
-            if (AnOrder.CustomerID != 32)
+            if (AnOrder.CustomerID != 2)
             {
                 OK = false;
             }
+            
             // Test to see if the result is correct
             Assert.IsTrue(OK);
         }
@@ -193,19 +237,25 @@ namespace TestingOrder
         {
             // Create an instance of the order class
             clsOrder AnOrder = new clsOrder();
+            
             // Boolean variable to store the result of the search
             Boolean Found = false;
+            
             // Boolean variable to record if data is OK
             Boolean OK = true;
+            
             // Create some test data to use with the method
             Int32 OrderID = 1;
+            
             // Invoke the method
             Found = AnOrder.Find(OrderID);
+            
             // Check the property
-            if (AnOrder.OrderNotes != "Test Notes")
+            if (AnOrder.OrderNotes != "Please leave with mailroom")
             {
                 OK = false;
             }
+            
             // Test to see if the result is correct
             Assert.IsTrue(OK);
         }
@@ -215,19 +265,25 @@ namespace TestingOrder
         {
             // Create an instance of the order class
             clsOrder AnOrder = new clsOrder();
+            
             // Boolean variable to store the result of the search
             Boolean Found = false;
+            
             // Boolean variable to record if data is OK
             Boolean OK = true;
+            
             // Create some test data to use with the method
             Int32 OrderID = 1;
+            
             // Invoke the method
             Found = AnOrder.Find(OrderID);
+            
             // Check the property
-            if (AnOrder.ProductID != 15)
+            if (AnOrder.ProductID != 3)
             {
                 OK = false;
             }
+            
             // Test to see if the result is correct
             Assert.IsTrue(OK);
         }
@@ -237,19 +293,25 @@ namespace TestingOrder
         {
             // Create an instance of the order class
             clsOrder AnOrder = new clsOrder();
+            
             // Boolean variable to store the result of the search
             Boolean Found = false;
+            
             // Boolean variable to record if data is OK
             Boolean OK = true;
+            
             // Create some test data to use with the method
             Int32 OrderID = 1;
+            
             // Invoke the method
             Found = AnOrder.Find(OrderID);
+            
             // Check the property
-            if (AnOrder.OrderTotal != 18.99)
+            if (AnOrder.OrderTotal != 19.99)
             {
                 OK = false;
             }
+            
             // Test to see if the result is correct
             Assert.IsTrue(OK);
         }
@@ -259,19 +321,25 @@ namespace TestingOrder
         {
             // Create an instance of the order class
             clsOrder AnOrder = new clsOrder();
+            
             // Boolean variable to store the result of the search
             Boolean Found = false;
+            
             // Boolean variable to record if data is OK
             Boolean OK = true;
+            
             // Create some test data to use with the method
             Int32 OrderID = 1;
+            
             // Invoke the method
             Found = AnOrder.Find(OrderID);
+            
             // Check the property
             if (AnOrder.OrderCompleted != true)
             {
                 OK = false;
             }
+            
             // Test to see if the result is correct
             Assert.IsTrue(OK);
         }
