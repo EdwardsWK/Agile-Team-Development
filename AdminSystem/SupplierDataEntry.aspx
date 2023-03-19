@@ -24,8 +24,8 @@
             <asp:Label ID="lblEmailAddress" runat="server" Text="Email Address" width="200px"></asp:Label>
             <asp:TextBox ID="txtEmailAddress" runat="server"></asp:TextBox>
             <br />
-            <asp:Label ID="lblSupplierNumber" runat="server" Text="Telephone Number" width="200px"></asp:Label>
-            <asp:TextBox ID="txtSupplierNumber" runat="server"></asp:TextBox>
+            <asp:Label ID="lblTelephoneNo" runat="server" Text="Telephone Number" width="200px"></asp:Label>
+            <asp:TextBox ID="txtTelephoneNo" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="lblCurrentSupplier" runat="server" Text="Current Supplier?" width="200px"></asp:Label>
             <asp:CheckBox ID="chkCurrentSupplier" runat="server" />
