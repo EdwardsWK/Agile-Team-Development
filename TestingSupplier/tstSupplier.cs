@@ -63,9 +63,9 @@ namespace TestingSupplier
             //create an instance of their class we want to create
             clsSupplier ASupplier = new clsSupplier();
             //create some test data to assign to the property
-            String TestData = "12/03/2023";
+            DateTime TestData = Convert.ToDateTime("12/03/2023 00:00:00");
             //assign the data to the property
-            ASupplier.ContractDate = Convert.ToDateTime(TestData);
+            ASupplier.ContractDate = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(ASupplier.ContractDate, TestData);
         }
