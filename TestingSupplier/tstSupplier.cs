@@ -107,6 +107,27 @@ namespace TestingSupplier
             //test to see that the two values are the same
             Assert.AreEqual(ASupplier.CurrentSupplier, TestData);
         }
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create 
+            clsSupplier ASupplier = new clsSupplier();
+            // boolean variable to store the results of the validation
+            Boolean Found = false;
+            // create some test data to use with the method
+            Int32 SupplierID = 1;
+            //invoke the method
+            Found = ASupplier.Find(SupplierID);
+            //test to see if the result is true
+            Assert.IsTrue(Found);
+            
+        }
+
+
     }
 
- }
+}
+   
+   
+
+ 
