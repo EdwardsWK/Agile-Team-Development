@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 
 namespace ClassLibrary
 {
@@ -165,11 +164,15 @@ namespace ClassLibrary
             // Create a temporary variable to store ProductID
             Int32 TempProductID;
 
+            // Create a temporary variable to store OrderTotal
+            Decimal TempOrderTotal;
+
             try
             {
                 // Copy the orderPlaced value to the temporary variable
                 TempOrderPlaced = Convert.ToDateTime(orderPlaced);
 
+                // Check to see if the date is less than today's date
                 if (TempOrderPlaced < DateTime.Now.Date)
                 {
                     // Record the error
@@ -183,6 +186,7 @@ namespace ClassLibrary
                     Error = Error + "The date cannot be in the future : ";
                 }
             }
+            // If the orderPlaced field is not a date
             catch
             {
                 // Record the error
@@ -191,27 +195,30 @@ namespace ClassLibrary
 
             try
             {
-                // Copy the customerID value to the temporary variable
+                // Copy the CustomerID value to the temporary variable
                 TempCustomerID = Convert.ToInt32(customerID);
-
+                
+                // Check if the CustomerID is less than one
                 if (TempCustomerID < 1)
                 {
                     // Record the error
                     Error = Error + "The CustomerID cannot be less than 1 : ";
                 }
             }
+            // If the CustomerID is more than the maximum Int32 value
             catch (OverflowException)
             {
-                // Handle IntegerOverflow exception
-                Error = "The CustomerID cannot be higher than 2,147,483,647: ";
+                // Record the error
+                Error = "The CustomerID cannot be higher than 2,147,483,647 : ";
             }
+            // If the CustomerID is not a number
             catch (FormatException)
             {
-                // Handle FormatException
+                // Record the error
                 Error = "The CustomerID was not a valid number : ";
             }
-
-            // If the OrderNotes are greater than 250 characters
+            
+            // If OrderNotes is longer than 250 characters
             if (orderNotes.Length > 250)
             {
                 // Record the error
@@ -229,22 +236,48 @@ namespace ClassLibrary
                     Error = Error + "The ProductID cannot be less than 1 : ";
                 }
             }
+            // If the productID is more than the maximum Int32 value
             catch (OverflowException)
             {
-                // Handle IntegerOverflow exception
-                Error = "The ProductID cannot be higher than 2,147,483,647: ";
+                // Record the error
+                Error = "The ProductID cannot be higher than 2,147,483,647 : ";
             }
+            // If the productID is not a number
             catch (FormatException)
             {
-                // Handle FormatException
+                // Record the error
                 Error = "The ProductID was not a valid number : ";
             }
 
-            /*
-             * 
-             * INSERT VALIDATION FOR ORDERTOTAL HERE
-             * 
-             */
+            try
+            {
+                TempOrderTotal = Convert.ToDecimal(orderTotal);
+
+                // If the OrderTotal is less than 0.01
+                if (TempOrderTotal < 100.00M)
+                {
+                    // Record the error
+                    Error = "The OrderTotal cannot be less than £100.00 : ";
+                }
+
+                // If the OrderTotal is more than 99999.99
+                if (TempOrderTotal > 99999.99M)
+                {
+                    // Record the error
+                    Error = "The OrderTotal cannot be more than £99999.99 : ";
+                }
+
+                if (TempOrderTotal != Math.Round(TempOrderTotal, 2))
+                {
+                    // Record the error
+                    Error = "The OrderTotal cannot contain more than two decimal places : ";
+                }
+            }
+            // If the OrderTotal is not a number
+            catch
+            {
+                Error = "The OrderTotal was not a valid number : ";
+            }
 
             // Return any error messages
             return Error;
