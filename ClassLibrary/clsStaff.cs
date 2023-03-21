@@ -111,16 +111,32 @@ namespace ClassLibrary
 
         public bool Find(int staffID)
         {
-            //Set the private data members to test data value
-            mStaffID = 1;
-            mStaffFirstName = "FirstName";
-            mStaffLastName = "LastName";
-            mStaffEmail = "Email";
-            mStaffPassword = "Password";
-            mStaffDateJoined = Convert.ToDateTime("25/12/2022");
-            mStaffIsManager = true;
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the StaffID to search for
+            DB.AddParameter("@StaffID", StaffID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_FilterByStaffID");
+            //if one record is found (there should be either one or zero!)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
+                mStaffFirstName = Convert.ToString(DB.DataTable.Rows[0]["StaffFirstName"]);
+                mStaffLastName = Convert.ToString(DB.DataTable.Rows[0]["StaffLastName"]);
+                mStaffEmail = Convert.ToString(DB.DataTable.Rows[0]["StaffEmail"]);
+                mStaffPassword = Convert.ToString(DB.DataTable.Rows[0]["StaffPassword"]);
+                mStaffDateJoined = Convert.ToDateTime(DB.DataTable.Rows[0]["StaffDateJoined"]);
+                mStaffIsManager = Convert.ToBoolean(DB.DataTable.Rows[0]["StaffIsManager"]);
+                //return that everything worked OK
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return false indicating a problem
+                return false;
+            }
         }
     }
 }
