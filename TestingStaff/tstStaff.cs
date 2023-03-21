@@ -165,7 +165,7 @@ namespace TestingStaff
             // Invoke the method
             Found = AStaff.Find(StaffID);
             // Check the OrderID
-            if (AStaff.StaffFirstName != "FirstName")
+            if (AStaff.StaffFirstName != "Samuel")
             {
                 OK = false;
             }
@@ -187,7 +187,7 @@ namespace TestingStaff
             // Invoke the method
             Found = AStaff.Find(StaffID);
             // Check the OrderID
-            if (AStaff.StaffLastName != "LastName")
+            if (AStaff.StaffLastName != "Doolan")
             {
                 OK = false;
             }
@@ -209,7 +209,7 @@ namespace TestingStaff
             // Invoke the method
             Found = AStaff.Find(StaffID);
             // Check the OrderID
-            if (AStaff.StaffEmail != "Email")
+            if (AStaff.StaffEmail != "p2672389@my365.dmu.ac.uk")
             {
                 OK = false;
             }
@@ -231,7 +231,7 @@ namespace TestingStaff
             // Invoke the method
             Found = AStaff.Find(StaffID);
             // Check the OrderID
-            if (AStaff.StaffPassword != "Password")
+            if (AStaff.StaffPassword != "01")
             {
                 OK = false;
             }
@@ -253,7 +253,7 @@ namespace TestingStaff
             // Invoke the method
             Found = AStaff.Find(StaffID);
             // Check the OrderID
-            if (AStaff.StaffDateJoined != Convert.ToDateTime("25/12/2022"))
+            if (AStaff.StaffDateJoined != Convert.ToDateTime("14/02/2023"))
             {
                 OK = false;
             }
