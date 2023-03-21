@@ -114,7 +114,7 @@ namespace ClassLibrary
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
             //add the parameter for the StaffID to search for
-            DB.AddParameter("@StaffID", StaffID);
+            DB.AddParameter("@StaffID", staffID);
             //execute the stored procedure
             DB.Execute("sproc_tblStaff_FilterByStaffID");
             //if one record is found (there should be either one or zero!)
@@ -127,7 +127,7 @@ namespace ClassLibrary
                 mStaffEmail = Convert.ToString(DB.DataTable.Rows[0]["StaffEmail"]);
                 mStaffPassword = Convert.ToString(DB.DataTable.Rows[0]["StaffPassword"]);
                 mStaffDateJoined = Convert.ToDateTime(DB.DataTable.Rows[0]["StaffDateJoined"]);
-                mStaffIsManager = Convert.ToBoolean(DB.DataTable.Rows[0]["StaffIsManager"]);
+                mStaffIsManager = Convert.ToBoolean(DB.DataTable.Rows[0]["isManager"]);
                 //return that everything worked OK
                 return true;
             }
