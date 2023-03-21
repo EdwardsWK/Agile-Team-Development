@@ -114,6 +114,174 @@ namespace TestingStaff
             Assert.AreEqual(AStaff.StaffIsManager, TestData);
         }
 
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            // Create an instance of the order class
+            clsStaff AStaff = new clsStaff();
+            // Boolean variable to store the result of the validation
+            Boolean Found = false;
+            // Create some test data to use with the method
+            Int32 StaffID = 1;
+            // Invoke the method
+            Found = AStaff.Find(StaffID);
+            // Test to see if the result is true
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestStaffIDFound()
+        {
+            // Create an instance of the order class
+            clsStaff AStaff = new clsStaff();
+            // Boolean variable to store the result of the search
+            Boolean Found = false;
+            // Boolean variable to record if data is OK
+            Boolean OK = true;
+            // Create some test data to use with the method
+            Int32 StaffID = 1;
+            // Invoke the method
+            Found = AStaff.Find(StaffID);
+            // Check the OrderID
+            if (AStaff.StaffID != 1)
+            {
+                OK = false;
+            }
+            // Test to see if the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestStaffFirstNameFound()
+        {
+            // Create an instance of the order class
+            clsStaff AStaff = new clsStaff();
+            // Boolean variable to store the result of the search
+            Boolean Found = false;
+            // Boolean variable to record if data is OK
+            Boolean OK = true;
+            // Create some test data to use with the method
+            Int32 StaffID = 1;
+            // Invoke the method
+            Found = AStaff.Find(StaffID);
+            // Check the OrderID
+            if (AStaff.StaffFirstName != "Samuel")
+            {
+                OK = false;
+            }
+            // Test to see if the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestStaffLastNameFound()
+        {
+            // Create an instance of the order class
+            clsStaff AStaff = new clsStaff();
+            // Boolean variable to store the result of the search
+            Boolean Found = false;
+            // Boolean variable to record if data is OK
+            Boolean OK = true;
+            // Create some test data to use with the method
+            Int32 StaffID = 1;
+            // Invoke the method
+            Found = AStaff.Find(StaffID);
+            // Check the OrderID
+            if (AStaff.StaffLastName != "Doolan")
+            {
+                OK = false;
+            }
+            // Test to see if the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestStaffEmailFound()
+        {
+            // Create an instance of the order class
+            clsStaff AStaff = new clsStaff();
+            // Boolean variable to store the result of the search
+            Boolean Found = false;
+            // Boolean variable to record if data is OK
+            Boolean OK = true;
+            // Create some test data to use with the method
+            Int32 StaffID = 1;
+            // Invoke the method
+            Found = AStaff.Find(StaffID);
+            // Check the OrderID
+            if (AStaff.StaffEmail != "p2672389@my365.dmu.ac.uk")
+            {
+                OK = false;
+            }
+            // Test to see if the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestStaffPasswordFound()
+        {
+            // Create an instance of the order class
+            clsStaff AStaff = new clsStaff();
+            // Boolean variable to store the result of the search
+            Boolean Found = false;
+            // Boolean variable to record if data is OK
+            Boolean OK = true;
+            // Create some test data to use with the method
+            Int32 StaffID = 1;
+            // Invoke the method
+            Found = AStaff.Find(StaffID);
+            // Check the OrderID
+            if (AStaff.StaffPassword != "01")
+            {
+                OK = false;
+            }
+            // Test to see if the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestStaffDateJoinedFound()
+        {
+            // Create an instance of the order class
+            clsStaff AStaff = new clsStaff();
+            // Boolean variable to store the result of the search
+            Boolean Found = false;
+            // Boolean variable to record if data is OK
+            Boolean OK = true;
+            // Create some test data to use with the method
+            Int32 StaffID = 1;
+            // Invoke the method
+            Found = AStaff.Find(StaffID);
+            // Check the OrderID
+            if (AStaff.StaffDateJoined != Convert.ToDateTime("14/02/2023"))
+            {
+                OK = false;
+            }
+            // Test to see if the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestIsManagerFound()
+        {
+            // Create an instance of the order class
+            clsStaff AStaff = new clsStaff();
+            // Boolean variable to store the result of the search
+            Boolean Found = false;
+            // Boolean variable to record if data is OK
+            Boolean OK = true;
+            // Create some test data to use with the method
+            Int32 StaffID = 1;
+            // Invoke the method
+            Found = AStaff.Find(StaffID);
+            // Check the OrderID
+            if (AStaff.StaffIsManager != true)
+            {
+                OK = false;
+            }
+            // Test to see if the result is correct
+            Assert.IsTrue(OK);
+        }
 
     }
 }
