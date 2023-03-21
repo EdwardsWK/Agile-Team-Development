@@ -13,6 +13,7 @@
             <h3>Staff Data Entry</h3>
             <asp:Label ID="lblStaffID" runat="server" Text="Staff ID " width="175px"></asp:Label>
             <asp:TextBox ID="txtStaffID" runat="server"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
             <br />
             <asp:Label ID="lblFirstName" runat="server" Text="First Name " width="175px"></asp:Label>
             <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
@@ -28,6 +29,7 @@
             <br />
             <asp:Label ID="lblDateJoined" runat="server" Text="Start Date " width="175px"></asp:Label>
             <asp:TextBox ID="txtStaffDateJoined" runat="server"></asp:TextBox>
+            <br />
             <br />
             <asp:Label ID="lblIsManager" runat="server" Text="Is Manager? "></asp:Label>
             <asp:CheckBox ID="chkIsManager" runat="server" />
