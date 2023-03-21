@@ -183,6 +183,8 @@ namespace TestingReview
             {
                 OK = false;
             }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
@@ -203,11 +205,13 @@ namespace TestingReview
             {
                 OK = false;
             }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
         }
 
             [TestMethod]
 
-            public void TestCommentsNoFound()
+            public void TestCommentsFound()
             {
                 //create an instance of the class we want to create
                 clsReview AReview = new clsReview();
