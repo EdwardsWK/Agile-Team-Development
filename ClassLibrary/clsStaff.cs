@@ -138,5 +138,97 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+        public string Valid(string staffFirstName, string staffLastName, string staffEmail, string staffPassword, string staffDateJoined)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable for date values
+            DateTime TempDate;
+
+            // If StaffFirstName is longer than 50 characters
+            if (staffFirstName.Length > 50)
+            {
+                // Record the error
+                Error = Error + "The StaffFirstName cannot be more than 50 characters : ";
+            }
+
+            // If StaffFirstName is longer than 250 characters
+            if (staffFirstName.Length < 1)
+            {
+                // Record the error
+                Error = Error + "The StaffFirstName must be at least 1 character : ";
+            }
+
+            // If StaffLastName is longer than 50 characters
+            if (staffLastName.Length > 50)
+            {
+                // Record the error
+                Error = Error + "The StaffLastName cannot be more than 50 characters : ";
+            }
+
+            // If StaffLastName is longer than 250 characters
+            if (staffLastName.Length < 1)
+            {
+                // Record the error
+                Error = Error + "The StaffLastName must be at least 1 character : ";
+            }
+
+            // If StaffEmail is longer than 50 characters
+            if (staffEmail.Length > 50)
+            {
+                // Record the error
+                Error = Error + "The StaffEmail cannot be more than 50 characters : ";
+            }
+
+            // If StaffEmail is longer than 250 characters
+            if (staffEmail.Length < 1)
+            {
+                // Record the error
+                Error = Error + "The StaffEmail must be at least 1 character : ";
+            }
+
+            // If StaffPassword is longer than 50 characters
+            if (staffPassword.Length > 50)
+            {
+                // Record the error
+                Error = Error + "The StaffPassword cannot be more than 50 characters : ";
+            }
+
+            // If StaffPassword is longer than 250 characters
+            if (staffPassword.Length < 1)
+            {
+                // Record the error
+                Error = Error + "The StaffPassword must be at least 1 character : ";
+            }
+
+            try
+            {
+                // Copy the staffDateJoined value to the temporary variable
+                TempDate = Convert.ToDateTime(staffDateJoined);
+
+                // Check to see if the date is less than today's date
+                if (TempDate < DateTime.Now.Date)
+                {
+                    // Record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+
+                // Check to see if the date is greater than today's date
+                if (TempDate > DateTime.Now.Date)
+                {
+                    // Record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            // If the staffDateJoined field is not a date
+            catch
+            {
+                // Record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
+            return Error;
+        }
     }
 }
