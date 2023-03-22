@@ -11,6 +11,7 @@
             <h3>Supplier Data Entry</h3>
             <asp:Label ID="lblSupplierID" runat="server" Text="Supplier ID" width="200px"></asp:Label>
             <asp:TextBox ID="txtSupplierID" runat="server"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
             <br />
             <asp:Label ID="lblSupplierName" runat="server" Text="Supplier Name" width="200px"></asp:Label>
             <asp:TextBox ID="txtSupplierName" runat="server"></asp:TextBox>
