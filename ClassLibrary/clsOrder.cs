@@ -21,7 +21,7 @@ namespace ClassLibrary
         }
 
         // Private data member for OrderID
-        DateTime mOrderPlaced
+        DateTime mOrderPlaced;
         public DateTime OrderPlaced
         {
             get
