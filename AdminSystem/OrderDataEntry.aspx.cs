@@ -19,19 +19,39 @@ public partial class _Order_DataEntry : System.Web.UI.Page
         clsOrder AnOrder = new clsOrder();
         
         // Capture the order details
-        AnOrder.OrderID = Convert.ToInt32(txtOrderID.Text);
-        AnOrder.OrderPlaced = Convert.ToDateTime(txtOrderPlaced.Text);
-        AnOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
-        AnOrder.OrderNotes = txtOrderNotes.Text;
-        AnOrder.ProductID = Convert.ToInt32(txtProductID.Text);
-        AnOrder.OrderTotal = Convert.ToDouble(txtOrderTotal.Text);
-        AnOrder.OrderCompleted = chkOrderCompleted.Checked;
-        
-        // Store the order details in the session object
-        Session["AnOrder"] = AnOrder;
-        
-        // Navigate to the viewer page
-        Response.Redirect("OrderViewer.aspx");
+        string OrderPlaced = txtOrderPlaced.Text;
+        string CustomerID = txtCustomerID.Text;
+        string OrderNotes = txtOrderNotes.Text;
+        string ProductID = txtProductID.Text;
+        string OrderTotal = txtOrderTotal.Text;
+        bool OrderCompleted = chkOrderCompleted.Checked;
+
+        // Variable to store any error messages
+        string Error = "";
+
+        // Validate the data
+        Error = AnOrder.Valid(OrderPlaced, CustomerID, OrderNotes, ProductID, OrderTotal);
+        if (Error == "")
+        {
+            // Store the Order Details
+            AnOrder.OrderPlaced = Convert.ToDateTime(OrderPlaced);
+            AnOrder.CustomerID = Convert.ToInt32(CustomerID);
+            AnOrder.OrderNotes = OrderNotes;
+            AnOrder.ProductID = Convert.ToInt32(ProductID);
+            AnOrder.OrderTotal = Convert.ToDouble(OrderTotal);
+            AnOrder.OrderCompleted = OrderCompleted;
+
+            // Store the Order in the session object
+            Session["AnOrder"] = AnOrder;
+
+            // Navigate to the viewer page
+            Response.Redirect("OrderViewer.aspx");
+        }
+        else
+        {
+            // Display the error message
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
