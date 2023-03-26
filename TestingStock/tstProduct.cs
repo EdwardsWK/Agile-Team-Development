@@ -157,7 +157,7 @@ namespace TestingStock
             }
 
             // Test to see if the result is true
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
@@ -185,7 +185,7 @@ namespace TestingStock
             }
 
             // Test to see if the result is true
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
@@ -213,7 +213,7 @@ namespace TestingStock
             }
 
             // Test to see if the result is true
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
@@ -241,7 +241,7 @@ namespace TestingStock
             }
 
             // Test to see if the result is true
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
@@ -269,7 +269,7 @@ namespace TestingStock
             }
 
             // Test to see if the result is true
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
@@ -297,7 +297,7 @@ namespace TestingStock
             }
 
             // Test to see if the result is true
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
     }
 }
