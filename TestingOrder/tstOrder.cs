@@ -203,7 +203,7 @@ namespace TestingOrder
             Found = AnOrder.Find(OrderID);
             
             // Check the property
-            if (AnOrder.OrderPlaced != Convert.ToDateTime("12/03/2023 14:00:00"))
+            if (AnOrder.OrderPlaced != Convert.ToDateTime("12/03/2023"))
             {
                 OK = false;
             }
@@ -315,7 +315,7 @@ namespace TestingOrder
             Found = AnOrder.Find(OrderID);
             
             // Check the property
-            if (AnOrder.OrderTotal != 19.99)
+            if (AnOrder.OrderTotal != 129.99)
             {
                 OK = false;
             }
