@@ -17,7 +17,6 @@ public partial class _Order_Viewer : System.Web.UI.Page
         AnOrder = (clsOrder)Session["AnOrder"];
         
         // Display the order details for this entry
-        Response.Write("Order ID: " + AnOrder.OrderID + "<br>\n");
         Response.Write("Order Placed: " + AnOrder.OrderPlaced + "<br>\n");
         Response.Write("Customer ID: " + AnOrder.CustomerID + "<br>\n");
         Response.Write("Order Notes: " + AnOrder.OrderNotes + "<br>\n");
