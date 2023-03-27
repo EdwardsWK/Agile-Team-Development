@@ -28,11 +28,25 @@ public partial class _Order_List : System.Web.UI.Page
 
         // Set the name of the primary key
         lstOrderList.DataValueField = "OrderID";
-
+        
         // Set the data fields to display
         lstOrderList.DataTextField = "OrderPlaced";
 
         // Bind the data to the list
         lstOrderList.DataBind();
+    }
+
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        // Store -1 into the session object to indicate this is a new record
+        Session["AnOrder"] = -1;
+
+        // Redirect to the data entry page
+        Response.Redirect("OrderDataEntry.aspx");
+    }
+
+    protected void lstOrderList_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
     }
 }
