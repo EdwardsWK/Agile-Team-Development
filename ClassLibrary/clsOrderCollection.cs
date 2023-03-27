@@ -7,6 +7,9 @@ namespace ClassLibrary
     {
         // Private data member for the list
         List<clsOrder> mOrderList = new List<clsOrder>();
+        // Private data member thisOrder
+        clsOrder mThisOrder = new clsOrder();
+
         // Public property for the Order List
         public List<clsOrder> OrderList
         {
@@ -36,7 +39,17 @@ namespace ClassLibrary
             }
         }
         
-        public clsOrder ThisOrder { get; set; }
+        public clsOrder ThisOrder
+        {
+            get
+            {
+                return mThisOrder;
+            }
+            set
+            {
+                mThisOrder = value;
+            }
+        }
 
         public clsOrderCollection()
         {
@@ -63,7 +76,7 @@ namespace ClassLibrary
 
                 // Read in the fields from the current order
                 AnOrder.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderID"]);
-                AnOrder.OrderPlaced = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderPlaced"]);
+                AnOrder.OrderPlaced = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderPlaced"]).Date;
                 AnOrder.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
                 AnOrder.OrderNotes = Convert.ToString(DB.DataTable.Rows[Index]["OrderNotes"]);
                 AnOrder.ProductID = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductID"]);
@@ -76,6 +89,23 @@ namespace ClassLibrary
                 // Point at the next record
                 Index++;
             }
+        }
+
+        public int Add()
+        {
+            // Adds a new record to the database based on the values of mThisAddress
+            // Set the primary key value of the new record
+            clsDataConnection DB = new clsDataConnection();
+
+            // Set the parameters for the stored procedure
+            DB.AddParameter("@OrderPlaced", mThisOrder.OrderPlaced);
+            DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
+            DB.AddParameter("@ProductID", mThisOrder.ProductID);
+            DB.AddParameter("@OrderNotes", mThisOrder.OrderNotes);
+            DB.AddParameter("@OrderTotal", mThisOrder.OrderTotal);
+
+            // Execute the query returning the primary key value
+            return DB.Execute("sproc_tblOrder_Insert");
         }
     }
 }

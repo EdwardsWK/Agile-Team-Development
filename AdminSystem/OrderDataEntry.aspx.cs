@@ -24,7 +24,6 @@ public partial class _Order_DataEntry : System.Web.UI.Page
         string OrderNotes = txtOrderNotes.Text;
         string ProductID = txtProductID.Text;
         string OrderTotal = txtOrderTotal.Text;
-        bool OrderCompleted = chkOrderCompleted.Checked;
 
         // Variable to store any error messages
         string Error = "";
@@ -39,13 +38,18 @@ public partial class _Order_DataEntry : System.Web.UI.Page
             AnOrder.OrderNotes = OrderNotes;
             AnOrder.ProductID = Convert.ToInt32(ProductID);
             AnOrder.OrderTotal = Convert.ToDouble(OrderTotal);
-            AnOrder.OrderCompleted = OrderCompleted;
 
-            // Store the Order in the session object
-            Session["AnOrder"] = AnOrder;
+            // Create an instance of the address collection
+            clsOrderCollection OrderList = new clsOrderCollection();
+
+            // Set the ThisOrder property
+            OrderList.ThisOrder = AnOrder;
+
+            // Add the new record
+            OrderList.Add();
 
             // Navigate to the viewer page
-            Response.Redirect("OrderViewer.aspx");
+            Response.Redirect("OrderList.aspx");
         }
         else
         {
