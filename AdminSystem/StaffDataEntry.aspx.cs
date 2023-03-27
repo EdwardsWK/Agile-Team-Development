@@ -15,9 +15,8 @@ public partial class _Staff_DataEntry : System.Web.UI.Page
 
     protected void btnConfirm_Click(object sender, EventArgs e)
     {
-         //create a new instance of clsStaff
+        //create a new instance of clsStaff
         clsStaff AStaff = new clsStaff();
-
         //capture the staff First Name
         string StaffFirstName = txtFirstName.Text;
         //capture the staff Last Name
@@ -46,10 +45,14 @@ public partial class _Staff_DataEntry : System.Web.UI.Page
             AStaff.StaffDateJoined = Convert.ToDateTime(StaffDateJoined);
             //capture if Staff is a Manager or not
             AStaff.StaffIsManager = chkIsManager.Checked;
-            //Store the staff details in a session object
-            Session["AStaff"] = AStaff;
-            //navigate to the viewer page
-            Response.Redirect("StaffViewer.aspx");
+            //create a new instance of the Staff Collection
+            clsStaffCollection StaffList = new clsStaffCollection();
+            //set the ThisStaff property
+            StaffList.ThisStaff = AStaff;
+            //add the new record
+            StaffList.Add();
+            //redirect back to the list page
+            Response.Redirect("StaffList.aspx");
         }
         else
         {
