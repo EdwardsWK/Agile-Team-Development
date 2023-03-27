@@ -34,6 +34,8 @@
             <asp:Label ID="lblIsManager" runat="server" Text="Is Manager? "></asp:Label>
             <asp:CheckBox ID="chkIsManager" runat="server" />
             <br />
+            <asp:Label ID="lblError" runat="server"></asp:Label>
+            <br />
             <asp:Button ID="btnConfirm" runat="server" OnClick="btnConfirm_Click" Text="Confirm" />
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
         </div>

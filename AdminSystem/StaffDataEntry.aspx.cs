@@ -15,24 +15,47 @@ public partial class _Staff_DataEntry : System.Web.UI.Page
 
     protected void btnConfirm_Click(object sender, EventArgs e)
     {
-        //create a new instance of clsStaff
+         //create a new instance of clsStaff
         clsStaff AStaff = new clsStaff();
-        //capture the staff details
-        AStaff.StaffID = Convert.ToInt32(txtStaffID.Text);
-        AStaff.StaffFirstName = txtFirstName.Text;
-        AStaff.StaffLastName = txtLastName.Text;
-        AStaff.StaffEmail = txtEmail.Text;
-        AStaff.StaffPassword = txtPassword.Text;
-        AStaff.StaffDateJoined = Convert.ToDateTime(txtStaffDateJoined.Text);
-        AStaff.StaffIsManager = chkIsManager.Checked;
-        //Store the staff details in a session object
-        Session["AStaff"] = AStaff;
-        //navigate to the viewer page
-        Response.Redirect("StaffViewer.aspx");
 
-
-
-
+        //capture the staff First Name
+        string StaffFirstName = txtFirstName.Text;
+        //capture the staff Last Name
+        string StaffLastName = txtLastName.Text;
+        //capture the staff Email
+        string StaffEmail = txtEmail.Text;
+        //capture the staff Password
+        string StaffPassword = txtPassword.Text;
+        //capture the staff Date Joined
+        string StaffDateJoined = txtStaffDateJoined.Text;
+        //variable to store any error messages
+        string Error = "";
+        //validate the data
+        Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffEmail, StaffPassword, StaffDateJoined);
+        if (Error == "")
+        {
+            //capture the staff First Name
+            AStaff.StaffFirstName = StaffFirstName;
+            //capture the staff Last Name
+            AStaff.StaffLastName = StaffLastName;
+            //capture the staff Email
+            AStaff.StaffEmail = StaffEmail;
+            //capture the staff Password
+            AStaff.StaffPassword = StaffPassword;
+            //capture the staff Date Joined
+            AStaff.StaffDateJoined = Convert.ToDateTime(StaffDateJoined);
+            //capture if Staff is a Manager or not
+            AStaff.StaffIsManager = chkIsManager.Checked;
+            //Store the staff details in a session object
+            Session["AStaff"] = AStaff;
+            //navigate to the viewer page
+            Response.Redirect("StaffViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
     }
 
 
