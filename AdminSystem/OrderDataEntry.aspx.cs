@@ -48,7 +48,7 @@ public partial class _Order_DataEntry : System.Web.UI.Page
             // Add the new record
             OrderList.Add();
 
-            // Navigate to the viewer page
+            // Redirect back to the list page
             Response.Redirect("OrderList.aspx");
         }
         else
