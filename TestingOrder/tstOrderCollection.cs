@@ -139,5 +139,54 @@ namespace TestingOrder
             // Test to see that the two values are the same
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
         }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            // Create an instance of the Order Collection class
+            clsOrderCollection AllOrders = new clsOrderCollection();
+
+            // Create the item of test data
+            clsOrder TestItem = new clsOrder();
+
+            // Var to store the primary key
+            Int32 PrimaryKey = 0;
+
+            // Set its properties
+            TestItem.OrderPlaced = DateTime.Now.Date;
+            TestItem.CustomerID = 555;
+            TestItem.ProductID = 777;
+            TestItem.OrderNotes = "Update Test";
+            TestItem.OrderTotal = 999.99;
+
+            // Set ThisAddress to the test data
+            AllOrders.ThisOrder = TestItem;
+
+            // Add the record
+            PrimaryKey = AllOrders.Add();
+
+            // Set the primary key of the test data
+            TestItem.OrderID = PrimaryKey;
+
+            // Modify the test data
+            TestItem.OrderPlaced = DateTime.Now.Date;
+            TestItem.CustomerID = 111;
+            TestItem.ProductID = 222;
+            TestItem.OrderNotes = "Update Test Success";
+            TestItem.OrderTotal = 333.33;
+            TestItem.OrderCompleted = true;
+
+            // Set the record based on the new test data
+            AllOrders.ThisOrder = TestItem;
+
+            // Update the record
+            AllOrders.Update();
+
+            // Find the record
+            AllOrders.ThisOrder.Find(PrimaryKey);
+
+            // Test to see that the two values are the same
+            Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+        }
     }
 }
