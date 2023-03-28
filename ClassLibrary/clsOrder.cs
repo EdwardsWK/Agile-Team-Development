@@ -153,7 +153,7 @@ namespace ClassLibrary
         public string Valid(string orderPlaced, string customerID, string orderNotes, string productID, string orderTotal)
         {
             // Create a string variable to store the error
-            String Error = "Error";
+            String Error = "";
 
             // Create a temporary variable to store date values
             DateTime TempOrderPlaced;
@@ -256,7 +256,7 @@ namespace ClassLibrary
             // Validation for the Order Total field
             try
             {
-                TempOrderTotal = Convert.ToDecimal(OrderTotal);
+                TempOrderTotal = Convert.ToDecimal(orderTotal);
 
                 // If the Order Total is less than 0.01
                 if (TempOrderTotal < 100.00M)
@@ -264,14 +264,12 @@ namespace ClassLibrary
                     // Record the error
                     Error = Error + "The Order Total cannot be less than £100.00 : ";
                 }
-
                 // If the Order Total is more than 99999.99
                 if (TempOrderTotal > 99999.99M)
                 {
                     // Record the error
                     Error = Error + "The Order Total cannot be more than £99999.99 : ";
                 }
-
                 if (TempOrderTotal != Math.Round(TempOrderTotal, 2))
                 {
                     // Record the error

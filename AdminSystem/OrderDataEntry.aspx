@@ -12,23 +12,24 @@
         <div>
             <h3>Order Data Entry</h3>
             <asp:Label ID="lblOrderID" runat="server" Text="Order ID" width="185px"></asp:Label>
-            <asp:TextBox ID="txtOrderID" runat="server" Width="160px"></asp:TextBox>
+            <asp:TextBox ID="txtOrderID" runat="server"></asp:TextBox>
+            
             <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
             <br />
             <asp:Label ID="lblOrderPlaced" runat="server" Text="Order Placed" width="185px"></asp:Label>
-            <asp:TextBox ID="txtOrderPlaced" runat="server" Width="160px"></asp:TextBox>
+            <asp:TextBox ID="txtOrderPlaced" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="lblCustomerID" runat="server" Text="Customer ID" width="185px"></asp:Label>
-            <asp:TextBox ID="txtCustomerID" runat="server" Width="160px"></asp:TextBox>
+            <asp:TextBox ID="txtCustomerID" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="lblOrderNotes" runat="server" Text="Order Notes" width="185px"></asp:Label>
-            <asp:TextBox ID="txtOrderNotes" runat="server" Width="160px"></asp:TextBox>
+            <asp:TextBox ID="txtOrderNotes" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="lblProductID" runat="server" Text="Product ID" width="185px"></asp:Label>
-            <asp:TextBox ID="txtProductID" runat="server" Width="160px"></asp:TextBox>
+            <asp:TextBox ID="txtProductID" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="lblOrderTotal" runat="server" Text="Order Total" width="185px"></asp:Label>
-            <asp:TextBox ID="txtOrderTotal" runat="server" Width="160px"></asp:TextBox>
+            <asp:TextBox ID="txtOrderTotal" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="lblOrderCompleted" runat="server" Text="Order Completed?" width="185px"></asp:Label>
             <asp:CheckBox ID="chkOrderCompleted" runat="server" />

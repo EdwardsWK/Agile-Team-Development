@@ -1,16 +1,46 @@
-﻿using System;
+﻿using ClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ClassLibrary;
 
 public partial class _Order_DataEntry : System.Web.UI.Page
 {
+    // Variable to store the primary key with page level scope
+    Int32 OrderID;
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Get the ID of the order to be processed
+        OrderID = Convert.ToInt32(Session["OrderID"]);
+        if (IsPostBack == false)
+        {
+            // If this is not a new record
+            if (OrderID != -1)
+            {
+                // Display the current data fror the record
+                DisplayOrder();
+            }
+        }
+    }
 
+    void DisplayOrder()
+    {
+        // Create an instance of the Order collection
+        clsOrderCollection Order = new clsOrderCollection();
+
+        // Get the details for the chosen Order
+        Order.ThisOrder.Find(OrderID);
+
+        // Populate the form with the Order details
+        txtOrderID.Text = Order.ThisOrder.OrderID.ToString();
+        txtOrderPlaced.Text = Order.ThisOrder.OrderPlaced.ToString();
+        txtCustomerID.Text = Order.ThisOrder.CustomerID.ToString();
+        txtOrderNotes.Text = Order.ThisOrder.OrderNotes;
+        txtProductID.Text = Order.ThisOrder.ProductID.ToString();
+        txtOrderTotal.Text = Order.ThisOrder.OrderTotal.ToString();
+        chkOrderCompleted.Checked = Order.ThisOrder.OrderCompleted;
     }
 
     protected void btnConfirm_Click(object sender, EventArgs e)
@@ -26,10 +56,10 @@ public partial class _Order_DataEntry : System.Web.UI.Page
         string OrderTotal = txtOrderTotal.Text;
 
         // Variable to store any error messages
-        string Error = "ERROR: ";
+        string Error = "";
 
         // Validate the data
-        Error = Error + AnOrder.Valid(OrderPlaced, CustomerID, OrderNotes, ProductID, OrderTotal);
+        Error = AnOrder.Valid(OrderPlaced, CustomerID, OrderNotes, ProductID, OrderTotal);
         if (Error == "")
         {
             // Store the Order Details
@@ -42,11 +72,27 @@ public partial class _Order_DataEntry : System.Web.UI.Page
             // Create an instance of the address collection
             clsOrderCollection OrderList = new clsOrderCollection();
 
-            // Set the ThisOrder property
-            OrderList.ThisOrder = AnOrder;
+            // If this is a new record then add the data
+            if (OrderID == -1)
+            {
+                // Set the ThisOrderProperty
+                OrderList.ThisOrder = AnOrder;
 
-            // Add the new record
-            OrderList.Add();
+                // Add the new record
+                OrderList.Add();
+            }
+            // Otherwise it must be an update
+            else
+            {
+                // Find the record to update
+                OrderList.ThisOrder.Find(OrderID);
+
+                // Set the ThisOrder property
+                OrderList.ThisOrder = AnOrder;
+
+                // Update the record
+                OrderList.Update();
+            }
 
             // Redirect back to the list page
             Response.Redirect("OrderList.aspx");
@@ -54,7 +100,7 @@ public partial class _Order_DataEntry : System.Web.UI.Page
         else
         {
             // Display the error message
-            lblError.Text = Error;
+            lblError.Text = Error + " Total: " + OrderTotal;
         }
     }
 
