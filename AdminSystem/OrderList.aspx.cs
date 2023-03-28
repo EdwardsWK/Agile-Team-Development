@@ -35,7 +35,6 @@ public partial class _Order_List : System.Web.UI.Page
         // Bind the data to the list
         lstOrderList.DataBind();
     }
-
     protected void btnAdd_Click(object sender, EventArgs e)
     {
         // Store -1 into the session object to indicate this is a new record
@@ -44,9 +43,14 @@ public partial class _Order_List : System.Web.UI.Page
         // Redirect to the data entry page
         Response.Redirect("OrderDataEntry.aspx");
     }
+    protected void btnUpdate_Click(object sender, EventArgs e)
+    {
+
+    }
 
     protected void lstOrderList_SelectedIndexChanged(object sender, EventArgs e)
     {
 
     }
+
 }
