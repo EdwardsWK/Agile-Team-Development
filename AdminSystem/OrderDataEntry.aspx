@@ -11,7 +11,7 @@
     <form id="frmOrder" runat="server">
         <div>
             <h3>Order Data Entry</h3>
-            <asp:Label ID="lblOrderID" runat="server" Text="Order ID" Width="185px"></asp:Label>
+            <asp:Label ID="lblOrderID" runat="server" Text="Order ID" width="185px"></asp:Label>
             <asp:TextBox ID="txtOrderID" runat="server" Width="160px"></asp:TextBox>
             <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
             <br />
