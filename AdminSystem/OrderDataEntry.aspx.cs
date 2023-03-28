@@ -26,10 +26,10 @@ public partial class _Order_DataEntry : System.Web.UI.Page
         string OrderTotal = txtOrderTotal.Text;
 
         // Variable to store any error messages
-        string Error = "BLAH";
+        string Error = "ERROR: ";
 
         // Validate the data
-        Error = AnOrder.Valid(OrderPlaced, CustomerID, OrderNotes, ProductID, OrderTotal);
+        Error = Error + AnOrder.Valid(OrderPlaced, CustomerID, OrderNotes, ProductID, OrderTotal);
         if (Error == "")
         {
             // Store the Order Details
