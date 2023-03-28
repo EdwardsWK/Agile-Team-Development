@@ -8,9 +8,22 @@ using ClassLibrary;
 
 public partial class _Staff_DataEntry : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope
+    Int32 StaffID;
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //get the number of the ID to be processed
+        StaffID = Convert.ToInt32(Session["StaffID"]);
+        if (IsPostBack == false)
+        {
+            //if this is not a new record
+            if (StaffID != -1)
+            {
+                //display the current data for the record
+                DisplayStaff();
+            }
+        }
     }
 
     protected void btnConfirm_Click(object sender, EventArgs e)
@@ -33,6 +46,8 @@ public partial class _Staff_DataEntry : System.Web.UI.Page
         Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffEmail, StaffPassword, StaffDateJoined);
         if (Error == "")
         {
+            //capture the staff ID
+            AStaff.StaffID = StaffID;
             //capture the staff First Name
             AStaff.StaffFirstName = StaffFirstName;
             //capture the staff Last Name
@@ -47,10 +62,26 @@ public partial class _Staff_DataEntry : System.Web.UI.Page
             AStaff.StaffIsManager = chkIsManager.Checked;
             //create a new instance of the Staff Collection
             clsStaffCollection StaffList = new clsStaffCollection();
-            //set the ThisStaff property
-            StaffList.ThisStaff = AStaff;
-            //add the new record
-            StaffList.Add();
+
+            //if this is a new record i.e. StaffID = -1, then add the data
+            if (StaffID == -1)
+            {
+                //set the ThisStaff property
+                StaffList.ThisStaff = AStaff;
+                //add the new record
+                StaffList.Add();
+            }
+            //otherwise it must be an update
+            else
+            {
+                //find the record to update
+                StaffList.ThisStaff.Find(StaffID);
+                //set the ThisStaff property
+                StaffList.ThisStaff = AStaff;
+                //update the record
+                StaffList.Update();
+            }
+            
             //redirect back to the list page
             Response.Redirect("StaffList.aspx");
         }
@@ -60,8 +91,6 @@ public partial class _Staff_DataEntry : System.Web.UI.Page
             lblError.Text = Error;
         }
     }
-
-
 
     protected void btnFind_Click(object sender, EventArgs e)
     {
@@ -88,5 +117,22 @@ public partial class _Staff_DataEntry : System.Web.UI.Page
             chkIsManager.Checked = AStaff.StaffIsManager;
 
         }
+    }
+
+    void DisplayStaff()
+    {
+        //create an instance of the Staff collection
+        clsStaffCollection Staff = new clsStaffCollection();
+        //get the details for the staff
+        Staff.ThisStaff.Find(StaffID);
+
+        //set the data source to list of Staff in the collection
+        txtStaffID.Text = Staff.ThisStaff.StaffID.ToString();
+        txtFirstName.Text = Staff.ThisStaff.StaffFirstName;
+        txtLastName.Text = Staff.ThisStaff.StaffLastName;
+        txtEmail.Text = Staff.ThisStaff.StaffEmail;
+        txtPassword.Text = Staff.ThisStaff.StaffPassword;
+        txtStaffDateJoined.Text = Staff.ThisStaff.StaffDateJoined.ToString();
+        chkIsManager.Checked = Staff.ThisStaff.StaffIsManager;
     }
 }
