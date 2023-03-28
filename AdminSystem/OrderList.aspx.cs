@@ -69,6 +69,30 @@ public partial class _Order_List : System.Web.UI.Page
         }
     }
 
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        // Var to store the primary key value of the record to be edited
+        Int32 OrderID;
+
+        // If a record has been selected from the list
+        if (lstOrderList.SelectedIndex != -1)
+        {
+            // Get the primary key value of the record to edit
+            OrderID = Convert.ToInt32(lstOrderList.SelectedValue);
+
+            // Store the data in the session object
+            Session["OrderID"] = OrderID;
+
+            // Redirect to the delete page
+            Response.Redirect("OrderConfirmDelete.aspx");
+        }
+        // If no record has been selected
+        else
+        {
+            lblError.Text = "Please select a record to delete from the list";
+        }
+    }
+
     protected void lstOrderList_SelectedIndexChanged(object sender, EventArgs e)
     {
 

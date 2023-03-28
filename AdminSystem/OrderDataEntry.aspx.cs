@@ -1,10 +1,10 @@
-﻿using ClassLibrary;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ClassLibrary;
 
 public partial class _Order_DataEntry : System.Web.UI.Page
 {
@@ -62,6 +62,9 @@ public partial class _Order_DataEntry : System.Web.UI.Page
         Error = AnOrder.Valid(OrderPlaced, CustomerID, OrderNotes, ProductID, OrderTotal);
         if (Error == "")
         {
+            // Capture the OrderID
+            AnOrder.OrderID = OrderID;
+
             // Store the Order Details
             AnOrder.OrderPlaced = Convert.ToDateTime(OrderPlaced);
             AnOrder.CustomerID = Convert.ToInt32(CustomerID);
@@ -100,7 +103,7 @@ public partial class _Order_DataEntry : System.Web.UI.Page
         else
         {
             // Display the error message
-            lblError.Text = Error + " Total: " + OrderTotal;
+            lblError.Text = Error;
         }
     }
 
