@@ -131,7 +131,7 @@ namespace TestingStaff
             // Boolean variable to store the result of the validation
             Boolean Found = false;
             // Create some test data to use with the method
-            Int32 StaffID = 1;
+            Int32 StaffID = 3;
             // Invoke the method
             Found = AStaff.Find(StaffID);
             // Test to see if the result is true
@@ -148,11 +148,11 @@ namespace TestingStaff
             // Boolean variable to record if data is OK
             Boolean OK = true;
             // Create some test data to use with the method
-            Int32 StaffID = 1;
+            Int32 StaffID = 3;
             // Invoke the method
             Found = AStaff.Find(StaffID);
             // Check the OrderID
-            if (AStaff.StaffID != 1)
+            if (AStaff.StaffID != 3)
             {
                 OK = false;
             }
@@ -170,7 +170,7 @@ namespace TestingStaff
             // Boolean variable to record if data is OK
             Boolean OK = true;
             // Create some test data to use with the method
-            Int32 StaffID = 1;
+            Int32 StaffID = 3;
             // Invoke the method
             Found = AStaff.Find(StaffID);
             // Check the OrderID
@@ -192,7 +192,7 @@ namespace TestingStaff
             // Boolean variable to record if data is OK
             Boolean OK = true;
             // Create some test data to use with the method
-            Int32 StaffID = 1;
+            Int32 StaffID = 3;
             // Invoke the method
             Found = AStaff.Find(StaffID);
             // Check the OrderID
@@ -214,11 +214,11 @@ namespace TestingStaff
             // Boolean variable to record if data is OK
             Boolean OK = true;
             // Create some test data to use with the method
-            Int32 StaffID = 1;
+            Int32 StaffID = 3;
             // Invoke the method
             Found = AStaff.Find(StaffID);
             // Check the OrderID
-            if (AStaff.StaffEmail != "p2672389@my365.dmu.ac.uk")
+            if (AStaff.StaffEmail != "Samuel.Doolan@dmu.ac.uk")
             {
                 OK = false;
             }
@@ -236,7 +236,7 @@ namespace TestingStaff
             // Boolean variable to record if data is OK
             Boolean OK = true;
             // Create some test data to use with the method
-            Int32 StaffID = 1;
+            Int32 StaffID = 3;
             // Invoke the method
             Found = AStaff.Find(StaffID);
             // Check the OrderID
@@ -258,11 +258,11 @@ namespace TestingStaff
             // Boolean variable to record if data is OK
             Boolean OK = true;
             // Create some test data to use with the method
-            Int32 StaffID = 1;
+            Int32 StaffID = 3;
             // Invoke the method
             Found = AStaff.Find(StaffID);
             // Check the OrderID
-            if (AStaff.StaffDateJoined != Convert.ToDateTime("14/02/2023"))
+            if (AStaff.StaffDateJoined != Convert.ToDateTime("01/01/2023"))
             {
                 OK = false;
             }
@@ -280,7 +280,7 @@ namespace TestingStaff
             // Boolean variable to record if data is OK
             Boolean OK = true;
             // Create some test data to use with the method
-            Int32 StaffID = 1;
+            Int32 StaffID = 3;
             // Invoke the method
             Found = AStaff.Find(StaffID);
             // Check the OrderID
