@@ -85,18 +85,18 @@ namespace ClassLibrary
         }
 
         // Private data member for OrderID
-        Double mOrder Total;
-        public double Order Total
+        Double mOrderTotal;
+        public double OrderTotal
         {
             get
             {
                 // Return the private data
-                return mOrder Total;
+                return mOrderTotal;
             }
             set
             {
                 // Set the private data
-                mOrder Total = value;
+                mOrderTotal = value;
             }
         }
 
@@ -136,9 +136,9 @@ namespace ClassLibrary
                 mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
                 mOrderNotes = Convert.ToString(DB.DataTable.Rows[0]["OrderNotes"]);
                 mProductID = Convert.ToInt32(DB.DataTable.Rows[0]["ProductID"]);
-                mOrder Total = Convert.ToDouble(DB.DataTable.Rows[0]["Order Total"]);
+                mOrderTotal = Convert.ToDouble(DB.DataTable.Rows[0]["OrderTotal"]);
                 mOrderCompleted = Convert.ToBoolean(DB.DataTable.Rows[0]["OrderCompleted"]);
-                
+
                 // Return that everything worked okay
                 return true;
             }
@@ -150,10 +150,10 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string orderPlaced, string customerID, string orderNotes, string productID, string Order Total)
+        public string Valid(string orderPlaced, string customerID, string orderNotes, string productID, string orderTotal)
         {
             // Create a string variable to store the error
-            String Error = "";
+            String Error = "Error";
 
             // Create a temporary variable to store date values
             DateTime TempOrderPlaced;
@@ -164,7 +164,7 @@ namespace ClassLibrary
             // Create a temporary variable to store ProductID
             Int32 TempProductID;
 
-            // Create a temporary variable to store Order Total
+            // Create a temporary variable to store OrderTotal
             Decimal TempOrderTotal;
 
             // Validation for the OrderPlaced field
@@ -220,14 +220,6 @@ namespace ClassLibrary
                 Error = Error + "The Customer ID was not a valid number : ";
             }
 
-            // Validation for the OrderNotes field
-            // If OrderNotes is longer than 250 characters
-            if (orderNotes.Length > 250)
-            {
-                // Record the error
-                Error = Error + "Order Notes cannot exceed 250 characters : ";
-            }
-
             // Validation for The Product ID field
             try
             {
@@ -253,10 +245,18 @@ namespace ClassLibrary
                 Error = Error + "The Product ID was not a valid number : ";
             }
 
+            // Validation for the OrderNotes field
+            // If OrderNotes is longer than 250 characters
+            if (orderNotes.Length > 250)
+            {
+                // Record the error
+                Error = Error + "Order Notes cannot exceed 250 characters : ";
+            }
+
             // Validation for the Order Total field
             try
             {
-                TempOrderTotal = Convert.ToDecimal(Order Total);
+                TempOrderTotal = Convert.ToDecimal(OrderTotal);
 
                 // If the Order Total is less than 0.01
                 if (TempOrderTotal < 100.00M)
