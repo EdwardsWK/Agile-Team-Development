@@ -13,7 +13,6 @@
             <h3>Order Data Entry</h3>
             <asp:Label ID="lblOrderID" runat="server" Text="Order ID" width="185px"></asp:Label>
             <asp:TextBox ID="txtOrderID" runat="server"></asp:TextBox>
-            
             <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
             <br />
             <asp:Label ID="lblOrderPlaced" runat="server" Text="Order Placed" width="185px"></asp:Label>

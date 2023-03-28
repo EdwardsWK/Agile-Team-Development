@@ -188,5 +188,46 @@ namespace TestingOrder
             // Test to see that the two values are the same
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
         }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            // Create an instance of the Order Collection class
+            clsOrderCollection AllOrders = new clsOrderCollection();
+
+            // Create the item of test data
+            clsOrder TestItem = new clsOrder();
+
+            // Var to store the primary key
+            Int32 PrimaryKey = 0;
+
+            // Set its properties
+            TestItem.OrderPlaced = DateTime.Now.Date;
+            TestItem.CustomerID = 987;
+            TestItem.ProductID = 654;
+            TestItem.OrderNotes = "Delete Test";
+            TestItem.OrderTotal = 321.12;
+
+            // Set ThisAddress to the test data
+            AllOrders.ThisOrder = TestItem;
+
+            // Add the record
+            PrimaryKey = AllOrders.Add();
+
+            // Set the primary key of the test data
+            TestItem.OrderID = PrimaryKey;
+
+            // Find the record
+            AllOrders.ThisOrder.Find(PrimaryKey);
+
+            // Delete the record
+            AllOrders.Delete();
+
+            // Now find the record
+            Boolean Found = AllOrders.ThisOrder.Find(PrimaryKey);
+
+            // Test to see that the two values are the same
+            Assert.IsFalse(Found);
+        }
     }
 }
