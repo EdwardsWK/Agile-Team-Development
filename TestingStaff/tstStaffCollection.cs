@@ -153,5 +153,93 @@ namespace TestingStaff
             //test to see if ThisStaff matches the test data
             Assert.AreEqual(AllStaff.ThisStaff, TestItem);
         }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //create the item of test data
+            clsStaff TestItem = new clsStaff();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.StaffID = 1;
+            TestItem.StaffFirstName = "Samuel";
+            TestItem.StaffLastName = "Doolan";
+            TestItem.StaffEmail = "p2672389@my365.dmu.ac.uk";
+            TestItem.StaffPassword = "01";
+            TestItem.StaffDateJoined = DateTime.Now.Date;
+            TestItem.StaffIsManager = true;
+            //set ThisStaff to the test data
+            AllStaff.ThisStaff = TestItem;
+            //add the record
+            PrimaryKey = AllStaff.Add();
+            //set the primary key of the test data
+            TestItem.StaffID = PrimaryKey;
+            //find the record
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            //delete the record
+            AllStaff.Delete();
+            //now find the record
+            Boolean Found = AllStaff.ThisStaff.Find(PrimaryKey);
+            //test to see that the record was not found
+            Assert.IsFalse(Found);
+        }
+
+        [TestMethod]
+        public void ReportByLastNameMethodOK()
+        {
+            //create an instance of the class containing unfiltered results
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //create an instance of the filtered data
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+            //apply a blank string (should return all records)
+            FilteredStaff.ReportByLastName("");
+            //test to see that the two values are the same
+            Assert.AreEqual(AllStaff.Count, FilteredStaff.Count);
+        }
+
+        [TestMethod]
+        public void ReportByLastNameNoneFound()
+        {
+            //create an instance of the filtered data
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+            //apply a Last Name that doesnt exist
+            FilteredStaff.ReportByLastName("xxxxxxxxx");
+            //test to see that there are no records
+            Assert.AreEqual(0, FilteredStaff.Count);
+        }
+
+        [TestMethod]
+        public void ReportByLastNameTestDataFound()
+        {
+            //create an instance of the filtered data
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+            //var to store the outcome
+            Boolean OK = true;
+            //apply a Last Name that doesnt exist
+            FilteredStaff.ReportByLastName("aaaaaaaaa");
+            //check that the correct number of records are found
+            if (FilteredStaff.Count == 2)
+            {
+                //check that the first record is ID 36
+                if (FilteredStaff.StaffList[0].StaffID != 36)
+                {
+                    OK = false;
+                }
+                //check that the first record is ID 37
+                if (FilteredStaff.StaffList[1].StaffID != 37)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            //test to see that there are no records
+            Assert.IsTrue(OK);
+        }
     }
 }
