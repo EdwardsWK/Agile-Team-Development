@@ -32,7 +32,7 @@ namespace ClassLibrary
             set
             {
                 // Set the private data
-                mOrderPlaced = value.Date;
+                mOrderPlaced = value;
             }
         }
 
