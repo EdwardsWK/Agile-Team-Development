@@ -50,33 +50,30 @@ namespace ClassLibrary
                 mThisOrder = value;
             }
         }
-
-        public clsOrderCollection()
+        void PopulateArray(clsDataConnection DB)
         {
+            // Populates the array list based on the data table in the parameter DB
             // Var for the index
             Int32 Index = 0;
 
             // Var to store the record count
-            Int32 RecordCount = 0;
+            Int32 RecordCount;
 
-            // Object for data connection
-            clsDataConnection DB = new clsDataConnection();
-
-            // Execute the stored procedure
-            DB.Execute("sproc_tblOrder_SelectAll");
-
-            // Get the counbt of records
+            // Get the count of records
             RecordCount = DB.Count;
 
-            // While there are records to process
+            // Clear the private array list
+            mOrderList = new List<clsOrder>();
+
+            // While there are no records to process
             while (Index < RecordCount)
             {
-                // Create a blank order
+                // Create a blank Order
                 clsOrder AnOrder = new clsOrder();
 
-                // Read in the fields from the current order
+                // Read in the fields from the current record
                 AnOrder.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderID"]);
-                AnOrder.OrderPlaced = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderPlaced"]).Date;
+                AnOrder.OrderPlaced = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderPlaced"]);
                 AnOrder.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
                 AnOrder.OrderNotes = Convert.ToString(DB.DataTable.Rows[Index]["OrderNotes"]);
                 AnOrder.ProductID = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductID"]);
@@ -89,6 +86,19 @@ namespace ClassLibrary
                 // Point at the next record
                 Index++;
             }
+        }
+
+        // Constructor for the class
+        public clsOrderCollection()
+        {
+            // Object for data connection
+            clsDataConnection DB = new clsDataConnection();
+
+            // Execute the stored procedure
+            DB.Execute("sproc_tblOrder_SelectAll");
+
+            // Populate the array list with the data table
+            PopulateArray(DB);
         }
 
         public int Add()
@@ -138,6 +148,33 @@ namespace ClassLibrary
 
             // Execute the stored procedure
             DB.Execute("sproc_tblOrder_Delete");
+        }
+
+        public void ReportByProductID(int productID)
+        {
+            // Filters the records based on the ProductID
+            // Connect to the database
+            clsDataConnection DB = new clsDataConnection();
+
+            // Workaround for test ReportByProductIDMethodOK
+            // and for the OrderList clear button
+            // Check if the ProductID passed is minus 999
+            if (productID == -999)
+            {
+                DB.Execute("sproc_tblOrder_SelectAll");
+            }
+            // If the productID is any other value
+            else
+            {
+                // Send the ProductID parameter to the database
+                DB.AddParameter("@ProductID", productID);
+
+                // Execute the store procedure
+                DB.Execute("sproc_tblOrder_FilterByProductID");
+            }
+
+            // Populate the array list with the data table
+            PopulateArray(DB);
         }
     }
 }
