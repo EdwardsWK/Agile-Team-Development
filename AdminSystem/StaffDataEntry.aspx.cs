@@ -115,7 +115,6 @@ public partial class _Staff_DataEntry : System.Web.UI.Page
             txtPassword.Text = AStaff.StaffPassword;
             txtStaffDateJoined.Text = AStaff.StaffDateJoined.ToShortDateString();
             chkIsManager.Checked = AStaff.StaffIsManager;
-
         }
     }
 
@@ -125,7 +124,6 @@ public partial class _Staff_DataEntry : System.Web.UI.Page
         clsStaffCollection Staff = new clsStaffCollection();
         //get the details for the staff
         Staff.ThisStaff.Find(StaffID);
-
         //set the data source to list of Staff in the collection
         txtStaffID.Text = Staff.ThisStaff.StaffID.ToString();
         txtFirstName.Text = Staff.ThisStaff.StaffFirstName;
@@ -134,5 +132,11 @@ public partial class _Staff_DataEntry : System.Web.UI.Page
         txtPassword.Text = Staff.ThisStaff.StaffPassword;
         txtStaffDateJoined.Text = Staff.ThisStaff.StaffDateJoined.ToString();
         chkIsManager.Checked = Staff.ThisStaff.StaffIsManager;
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        //redirect to the Staff list page
+        Response.Redirect("StaffList.aspx");
     }
 }

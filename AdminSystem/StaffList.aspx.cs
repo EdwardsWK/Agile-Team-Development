@@ -80,4 +80,43 @@ public partial class _Staff_List : System.Web.UI.Page
             lblError.Text = "Please select a record to delete from the list";
         }
     }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        //if filter textbox is not empty
+        if (txtFilter.Text != "")
+        {
+            //create an instance of the StaffCollection
+            clsStaffCollection Staff = new clsStaffCollection();
+            Staff.ReportByLastName(txtFilter.Text);
+            lstStaffList.DataSource = Staff.StaffList;
+            //set the name of the primary key
+            lstStaffList.DataValueField = "StaffID";
+            //set the data fields to display
+            lstStaffList.DataTextField = "StaffFirstName";
+            //bind the data to the list
+            lstStaffList.DataBind();
+        }
+        //if filter textbox empty
+        else
+        {
+            lblError.Text = "Please enter a last name";
+        }
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        //create an instance of the StaffCollection
+        clsStaffCollection Staff = new clsStaffCollection();
+        Staff.ReportByLastName("");
+        //clear any existing filter to tidy up the interface
+        txtFilter.Text = "";
+        lstStaffList.DataSource = Staff.StaffList;
+        //set the name of the primary key
+        lstStaffList.DataValueField = "StaffID";
+        //set the data fields to display
+        lstStaffList.DataTextField = "StaffFirstName";
+        //bind the data to the list
+        lstStaffList.DataBind();
+    }
 }
