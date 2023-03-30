@@ -32,7 +32,7 @@ namespace TestingOrder
 
             // Set its properties
             TestItem.OrderID = 1;
-            TestItem.OrderPlaced = DateTime.Now.Date;
+            TestItem.OrderPlaced = DateTime.Now;
             TestItem.CustomerID = 2;
             TestItem.ProductID = 3;
             TestItem.OrderNotes = "Testing";
@@ -60,7 +60,7 @@ namespace TestingOrder
 
             // Set its properties
             TestOrder.OrderID = 1;
-            TestOrder.OrderPlaced = DateTime.Now.Date;
+            TestOrder.OrderPlaced = DateTime.Now;
             TestOrder.CustomerID = 2;
             TestOrder.ProductID = 3;
             TestOrder.OrderNotes = "Testing";
@@ -88,7 +88,7 @@ namespace TestingOrder
 
             // Set its properties
             TestItem.OrderID = 1;
-            TestItem.OrderPlaced = DateTime.Now.Date;
+            TestItem.OrderPlaced = DateTime.Now;
             TestItem.CustomerID = 2;
             TestItem.ProductID = 3;
             TestItem.OrderNotes = "Testing";
@@ -118,7 +118,7 @@ namespace TestingOrder
             Int32 PrimaryKey = 0;
 
             // Set its properties
-            TestItem.OrderPlaced = DateTime.Now.Date;
+            TestItem.OrderPlaced = DateTime.Now;
             TestItem.CustomerID = 999;
             TestItem.ProductID = 333;
             TestItem.OrderNotes = "Add Test";
@@ -153,7 +153,7 @@ namespace TestingOrder
             Int32 PrimaryKey = 0;
 
             // Set its properties
-            TestItem.OrderPlaced = DateTime.Now.Date;
+            TestItem.OrderPlaced = DateTime.Now;
             TestItem.CustomerID = 555;
             TestItem.ProductID = 777;
             TestItem.OrderNotes = "Update Test";
@@ -169,7 +169,7 @@ namespace TestingOrder
             TestItem.OrderID = PrimaryKey;
 
             // Modify the test data
-            TestItem.OrderPlaced = DateTime.Now.Date;
+            TestItem.OrderPlaced = DateTime.Now;
             TestItem.CustomerID = 111;
             TestItem.ProductID = 222;
             TestItem.OrderNotes = "Update Test Success";
@@ -202,7 +202,7 @@ namespace TestingOrder
             Int32 PrimaryKey = 0;
 
             // Set its properties
-            TestItem.OrderPlaced = DateTime.Now.Date;
+            TestItem.OrderPlaced = DateTime.Now;
             TestItem.CustomerID = 987;
             TestItem.ProductID = 654;
             TestItem.OrderNotes = "Delete Test";
