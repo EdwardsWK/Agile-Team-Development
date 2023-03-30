@@ -128,17 +128,112 @@ namespace ClassLibrary
                 // Return false indicating a problem
                 return false;
             }
-            
-            // Set the private data members to the following test data
-            //mProductID = 1;
-            //mProductName = "Acer";
-            //mDateAdded = Convert.ToDateTime("12/12/2001");
-            //mStockCount = 5;
-            //mPrice = (float)Convert.ToDouble(199.99);
-            //mAvailable = true;
 
-            // always return true
-            //return true;
+        }
+
+        public string Valid(string productName, string dateAdded, string stockCount, string price)
+        {
+            // Create a string variable to store the error
+            String Error = "";
+
+            // Create a temporary variable for date values
+            DateTime TempDate;
+
+            // Create a temporary variable for stock count
+            Int32 TempStockCount;
+
+            // Create a temporary variable for Price
+            float TempPrice;
+
+            // If the ProductName is blank
+            if (productName.Length == 0)
+            {
+                // Record the error
+                Error = Error + "The Product Name may not be set : ";
+            }
+
+            // If the product name is greater than 50 characters
+            if (productName.Length > 50)
+            {
+                // Record the error
+                Error = Error + "The Product Name must be less than 50 characters : ";
+            }
+
+            try
+            {
+                // Copy the dateAdded value to the TempDate variable
+                TempDate = Convert.ToDateTime(dateAdded);
+                if (TempDate < DateTime.Now.Date)
+                {
+                    // Record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                // Check to see if the date is greater than today's date
+                if (TempDate > DateTime.Now.Date)
+                {
+                    // Record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                // Record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
+            
+            // Validation for StockCount
+            try
+            {
+                // Copy the StockCount value to a temporary variable
+                TempStockCount = Convert.ToInt32(stockCount);
+
+                if (TempStockCount < 0)
+                {
+                    // Record the error
+                    Error = Error + "The StockCount cannot be less than 0 : ";
+                }
+            }
+
+            // If The StockCount is more than the maximum Int32 value
+            catch (OverflowException)
+            {
+                // Record the error
+                Error = Error + "The StockCount cannot be higher than 2,147,483,647 : ";
+            }
+            // If The StockCount is not a number
+            catch (FormatException)
+            {
+                // Record the error
+                Error = Error + "The StockCount was not a valid number : ";
+            }
+
+            // Validation for the Order Total field
+            try
+            {
+                TempPrice = (float)Convert.ToDouble(price);
+
+                // If the Price is less than 100
+                if (TempPrice < 100.00f)
+                {
+                    // Record the error
+                    Error = Error + "The Price cannot be less than £100.00 : ";
+                }
+                // If the Price is more than 99999.99
+                if (TempPrice > 99999.99f)
+                {
+                    // Record the error
+                    Error = Error + "The Price cannot be more than £99999.99 : ";
+                }
+            }
+            // If the Price is not a number
+            catch
+            {
+                Error = Error + "The Price was not a valid number : ";
+            }
+
+            //return any error messages
+            return Error;
 
         }
     }
