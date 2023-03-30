@@ -11,7 +11,7 @@ namespace TestingOrder
         [TestMethod]
         public void InstanceOK()
         {
-            // Create an instance of the Order Collection class
+            // Create an instance of the OrderCollection class
             clsOrderCollection AllOrders = new clsOrderCollection();
 
             // Test to see if it exists
@@ -21,7 +21,7 @@ namespace TestingOrder
         [TestMethod]
         public void OrderListOK()
         {
-            // Create an instance of the Order Collection class
+            // Create an instance of the OrderCollection class
             clsOrderCollection AllOrders = new clsOrderCollection();
 
             // Create some test data to assign to the property
@@ -52,7 +52,7 @@ namespace TestingOrder
         [TestMethod]
         public void ThisOrderPropertyOK()
         {
-            // Create an instance of the Order Collection class
+            // Create an instance of the OrderCollection class
             clsOrderCollection AllOrders = new clsOrderCollection();
 
             // Create some test data to assign to the property
@@ -77,7 +77,7 @@ namespace TestingOrder
         [TestMethod]
         public void ListAndCountOK()
         {
-            // Create an instance of the Order Collection class
+            // Create an instance of the OrderCollection class
             clsOrderCollection AllOrders = new clsOrderCollection();
 
             // Create some test data to assign to the property
@@ -108,7 +108,7 @@ namespace TestingOrder
         [TestMethod]
         public void AddMethodOK()
         {
-            // Create an instance of the Order Collection class
+            // Create an instance of the OrderCollection class
             clsOrderCollection AllOrders = new clsOrderCollection();
 
             // Create the item of test data
@@ -143,7 +143,7 @@ namespace TestingOrder
         [TestMethod]
         public void UpdateMethodOK()
         {
-            // Create an instance of the Order Collection class
+            // Create an instance of the OrderCollection class
             clsOrderCollection AllOrders = new clsOrderCollection();
 
             // Create the item of test data
@@ -192,7 +192,7 @@ namespace TestingOrder
         [TestMethod]
         public void DeleteMethodOK()
         {
-            // Create an instance of the Order Collection class
+            // Create an instance of the OrderCollection class
             clsOrderCollection AllOrders = new clsOrderCollection();
 
             // Create the item of test data
@@ -228,6 +228,70 @@ namespace TestingOrder
 
             // Test to see that the two values are the same
             Assert.IsFalse(Found);
+        }
+
+        [TestMethod]
+        public void ReportByProductIDMethodOK()
+        {
+            // Create an instance of the OrderCollection class containing unfiltered results
+            clsOrderCollection AllOrders = new clsOrderCollection();
+
+            // Create an instance of the OrderCollection class containing filtered data
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+
+            // Apply a  string (Should return all records)
+            FilteredOrders.ReportByProductID(-999);
+
+            // Test to see that the two values are the same
+            Assert.AreEqual(AllOrders.Count, FilteredOrders.Count);
+        }
+
+        [TestMethod]
+        public void ReportByProductIDNoneFound()
+        {
+            // Create an instance of the OrderCollection class containing filtered data
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+
+            // Apply a ProductID that doesn't exist
+            FilteredOrders.ReportByProductID(0);
+
+            // Test to see that there are no records
+            Assert.AreEqual(0, FilteredOrders.Count);
+        }
+
+        [TestMethod]
+        public void ReportByProductIDDataFound()
+        {
+            // Create an instance of the OrderCollection class containing filtered data
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+
+            // Var to store outcome
+            Boolean OK = true;
+
+            // Apply a ProductID that doesn't exist
+            FilteredOrders.ReportByProductID(54321);
+
+            // Check that the correct number of records are found
+            if (FilteredOrders.Count == 2)
+            {
+                // Check if the first record's CustomerID is 121
+                if (FilteredOrders.OrderList[0].CustomerID != 121)
+                {
+                    OK = false;
+                }
+                // Check if the first record's CustomerID is 121
+                if (FilteredOrders.OrderList[1].CustomerID != 95)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+
+            // Test to see that there are no records
+            Assert.IsTrue(OK);
         }
     }
 }

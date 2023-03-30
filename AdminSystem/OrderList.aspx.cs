@@ -97,4 +97,41 @@ public partial class _Order_List : System.Web.UI.Page
     {
 
     }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        // Create an instance of the OrderCollection
+        clsOrderCollection Orders = new clsOrderCollection();
+        Orders.ReportByProductID(Convert.ToInt32(txtFilter.Text));
+        lstOrderList.DataSource = Orders.OrderList;
+
+        // Set the name of the primary key
+        lstOrderList.DataValueField = "OrderID";
+
+        // Set the data fields to display
+        lstOrderList.DataTextField = "OrderPlaced";
+
+        // Bind the data to the list
+        lstOrderList.DataBind();
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        // Create an instance of the OrderCollection
+        clsOrderCollection Orders = new clsOrderCollection();
+        Orders.ReportByProductID(-999);
+
+        // Clear any existing filter to tidy up the interface
+        txtFilter.Text = "";
+        lstOrderList.DataSource = Orders.OrderList;
+
+        // Set the name of the primary key
+        lstOrderList.DataValueField = "OrderID";
+
+        // Set the data fields to display
+        lstOrderList.DataTextField = "OrderPlaced";
+
+        // Bind the data to the list
+        lstOrderList.DataBind();
+    }
 }
