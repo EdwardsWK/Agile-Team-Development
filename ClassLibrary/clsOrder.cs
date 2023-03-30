@@ -171,7 +171,7 @@ namespace ClassLibrary
             try
             {
                 // Copy the orderPlaced value to the temporary variable
-                TempOrderPlaced = Convert.ToDateTime(orderPlaced);
+                TempOrderPlaced = Convert.ToDateTime(orderPlaced).Date;
 
                 // Check to see if The Order Placed date is less than today's date
                 if (TempOrderPlaced < DateTime.Now.Date)

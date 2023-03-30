@@ -134,4 +134,9 @@ public partial class _Order_DataEntry : System.Web.UI.Page
             chkOrderCompleted.Checked = AnOrder.OrderCompleted;
         }
     }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("OrderList.aspx");
+    }
 }

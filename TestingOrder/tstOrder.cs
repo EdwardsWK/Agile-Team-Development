@@ -9,7 +9,7 @@ namespace TestingOrder
     {
         // Good test data
         // Create some test data to pass the method
-        String OrderPlaced = DateTime.Now.Date.ToString();
+        String OrderPlaced = DateTime.Now.ToString();
         String CustomerID = "25";
         String ProductID = "13";
         String OrderNotes = "Some test data";
@@ -48,7 +48,7 @@ namespace TestingOrder
             clsOrder AnOrder = new clsOrder();
             
             // Create some test data
-            DateTime TestData = DateTime.Now.Date;
+            DateTime TestData = DateTime.Now;
             
             // Assign the data to the property
             AnOrder.OrderPlaced = TestData;
@@ -203,7 +203,7 @@ namespace TestingOrder
             Found = AnOrder.Find(OrderID);
             
             // Check the property
-            if (AnOrder.OrderPlaced != Convert.ToDateTime("12/03/2023"))
+            if (AnOrder.OrderPlaced != Convert.ToDateTime("12/03/2023 12:37:26"))
             {
                 OK = false;
             }
@@ -378,7 +378,7 @@ namespace TestingOrder
             String Error = "";
 
             // Create a variable to store the test date data
-            String OrderPlaced = DateTime.Now.Date.AddYears(-100).ToString();
+            String OrderPlaced = DateTime.Now.AddYears(-100).ToString();
             
             // Invoke the method
             Error = AnOrder.Valid(OrderPlaced, CustomerID, OrderNotes, ProductID, OrderTotal);
@@ -397,7 +397,7 @@ namespace TestingOrder
             String Error = "";
 
             // Create a variable to store the test date data
-            String OrderPlaced = DateTime.Now.Date.AddDays(-1).ToString();
+            String OrderPlaced = DateTime.Now.AddDays(-1).ToString();
 
             // Invoke the method
             Error = AnOrder.Valid(OrderPlaced, CustomerID, OrderNotes, ProductID, OrderTotal);
@@ -416,7 +416,7 @@ namespace TestingOrder
             String Error = "";
 
             // Create a variable to store the test date data
-            String OrderPlaced = DateTime.Now.Date.ToString();
+            String OrderPlaced = DateTime.Now.ToString();
 
             // Invoke the method
             Error = AnOrder.Valid(OrderPlaced, CustomerID, OrderNotes, ProductID, OrderTotal);
@@ -435,7 +435,7 @@ namespace TestingOrder
             String Error = "";
 
             // Create a variable to store the test date data
-            String OrderPlaced = DateTime.Now.Date.AddDays(1).ToString();
+            String OrderPlaced = DateTime.Now.AddDays(1).ToString();
 
             // Invoke the method
             Error = AnOrder.Valid(OrderPlaced, CustomerID, OrderNotes, ProductID, OrderTotal);
@@ -454,7 +454,7 @@ namespace TestingOrder
             String Error = "";
 
             // Create a variable to store the test date data
-            String OrderPlaced = DateTime.Now.Date.AddYears(100).ToString();
+            String OrderPlaced = DateTime.Now.AddYears(100).ToString();
 
             // Invoke the method
             Error = AnOrder.Valid(OrderPlaced, CustomerID, OrderNotes, ProductID, OrderTotal);
