@@ -281,7 +281,7 @@ namespace ClassLibrary
             {
                 Error = Error + "The Order Total was not a valid number : ";
             }
-
+            
             // Return any error messages
             return Error;
         }

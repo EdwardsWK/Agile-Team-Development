@@ -35,7 +35,6 @@ namespace ClassLibrary
             }
             set
             {
-                //TODO: WE SHALL WORRY ABOUT THIS LATER
             }
         }
         
@@ -113,7 +112,7 @@ namespace ClassLibrary
             DB.AddParameter("@ProductID", mThisOrder.ProductID);
             DB.AddParameter("@OrderNotes", mThisOrder.OrderNotes);
             DB.AddParameter("@OrderTotal", mThisOrder.OrderTotal);
-
+            
             // Execute the query returning the primary key value
             return DB.Execute("sproc_tblOrder_Insert");
         }
