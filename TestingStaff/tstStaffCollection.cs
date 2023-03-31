@@ -30,10 +30,10 @@ namespace TestingStaff
             clsStaff TestItem = new clsStaff();
             //set its properties
             TestItem.StaffID = 1;
-            TestItem.StaffFirstName = "Samuel";
-            TestItem.StaffLastName = "Doolan";
-            TestItem.StaffEmail = "p2672389@my365.dmu.ac.uk";
-            TestItem.StaffPassword = "01";
+            TestItem.StaffFirstName = "Tim";
+            TestItem.StaffLastName = "Cook";
+            TestItem.StaffEmail = "timcook@email.com";
+            TestItem.StaffPassword = "43";
             TestItem.StaffDateJoined = DateTime.Now.Date;
             TestItem.StaffIsManager = true;
             //add the item to the test list
@@ -53,12 +53,12 @@ namespace TestingStaff
             clsStaff TestStaff = new clsStaff();
             //set the properties of the test object
             TestStaff.StaffID = 1;
-            TestStaff.StaffFirstName = "Samuel";
-            TestStaff.StaffLastName = "Doolan";
-            TestStaff.StaffEmail = "p2672389@my365.dmu.ac.uk";
-            TestStaff.StaffPassword = "01";
+            TestStaff.StaffFirstName = "James";
+            TestStaff.StaffLastName = "Place";
+            TestStaff.StaffEmail = "jamesplace@email.com";
+            TestStaff.StaffPassword = "64";
             TestStaff.StaffDateJoined = DateTime.Now.Date;
-            TestStaff.StaffIsManager = true;
+            TestStaff.StaffIsManager = false;
             //assign the data to the property
             AllStaff.ThisStaff = TestStaff;
             //test to see that the two values are the same
@@ -78,12 +78,12 @@ namespace TestingStaff
             clsStaff TestItem = new clsStaff();
             //set its properties
             TestItem.StaffID = 1;
-            TestItem.StaffFirstName = "Samuel";
-            TestItem.StaffLastName = "Doolan";
-            TestItem.StaffEmail = "p2672389@my365.dmu.ac.uk";
-            TestItem.StaffPassword = "01";
+            TestItem.StaffFirstName = "Michelle";
+            TestItem.StaffLastName = "Daniel";
+            TestItem.StaffEmail = "michelledaniels";
+            TestItem.StaffPassword = "55";
             TestItem.StaffDateJoined = DateTime.Now.Date;
-            TestItem.StaffIsManager = true;
+            TestItem.StaffIsManager = false;
         }
 
         [TestMethod]
@@ -97,12 +97,12 @@ namespace TestingStaff
             Int32 PrimaryKey = 0;
             //set its properties
             TestItem.StaffID = 1;
-            TestItem.StaffFirstName = "Samuel";
-            TestItem.StaffLastName = "Doolan";
-            TestItem.StaffEmail = "p2672389@my365.dmu.ac.uk";
-            TestItem.StaffPassword = "01";
+            TestItem.StaffFirstName = "Simon";
+            TestItem.StaffLastName = "Simmons";
+            TestItem.StaffEmail = "simonsimmons@email.co.uk";
+            TestItem.StaffPassword = "74";
             TestItem.StaffDateJoined = DateTime.Now.Date;
-            TestItem.StaffIsManager = true;
+            TestItem.StaffIsManager = false;
             //set ThisStaff to the test data
             AllStaff.ThisStaff = TestItem;
             //add the record
@@ -125,12 +125,12 @@ namespace TestingStaff
             //var to store the primary key
             Int32 PrimaryKey = 0;
             //set its properties
-            TestItem.StaffFirstName = "Samuel";
-            TestItem.StaffLastName = "Doolan";
-            TestItem.StaffEmail = "p2672389@my365.dmu.ac.uk";
-            TestItem.StaffPassword = "01";
+            TestItem.StaffFirstName = "Matteo";
+            TestItem.StaffLastName = "Lorde";
+            TestItem.StaffEmail = "mlorde@email.com";
+            TestItem.StaffPassword = "87";
             TestItem.StaffDateJoined = DateTime.Now.Date;
-            TestItem.StaffIsManager = true;
+            TestItem.StaffIsManager = false;
             //set ThisStaff to the test data
             AllStaff.ThisStaff = TestItem;
             //add the record
@@ -165,12 +165,12 @@ namespace TestingStaff
             Int32 PrimaryKey = 0;
             //set its properties
             TestItem.StaffID = 1;
-            TestItem.StaffFirstName = "Samuel";
-            TestItem.StaffLastName = "Doolan";
-            TestItem.StaffEmail = "p2672389@my365.dmu.ac.uk";
-            TestItem.StaffPassword = "01";
+            TestItem.StaffFirstName = "Hannah";
+            TestItem.StaffLastName = "Church";
+            TestItem.StaffEmail = "hannahchurch@email.co.uk";
+            TestItem.StaffPassword = "26";
             TestItem.StaffDateJoined = DateTime.Now.Date;
-            TestItem.StaffIsManager = true;
+            TestItem.StaffIsManager = false;
             //set ThisStaff to the test data
             AllStaff.ThisStaff = TestItem;
             //add the record
@@ -219,17 +219,17 @@ namespace TestingStaff
             //var to store the outcome
             Boolean OK = true;
             //apply a Last Name that doesnt exist
-            FilteredStaff.ReportByLastName("aaaaaaaaa");
+            FilteredStaff.ReportByLastName("Smith");
             //check that the correct number of records are found
             if (FilteredStaff.Count == 2)
             {
-                //check that the first record is ID 36
-                if (FilteredStaff.StaffList[0].StaffID != 36)
+                //check that the first record is ID 41
+                if (FilteredStaff.StaffList[0].StaffID != 41)
                 {
                     OK = false;
                 }
-                //check that the first record is ID 37
-                if (FilteredStaff.StaffList[1].StaffID != 37)
+                //check that the first record is ID 42
+                if (FilteredStaff.StaffList[1].StaffID != 42)
                 {
                     OK = false;
                 }
