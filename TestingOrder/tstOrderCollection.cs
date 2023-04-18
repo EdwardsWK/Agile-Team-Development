@@ -274,13 +274,13 @@ namespace TestingOrder
             // Check that the correct number of records are found
             if (FilteredOrders.Count == 2)
             {
-                // Check if the first record's CustomerID is 121
-                if (FilteredOrders.OrderList[0].CustomerID != 121)
+                // Check if the first record's OrderID is 3
+                if (FilteredOrders.OrderList[0].OrderID != 3)
                 {
                     OK = false;
                 }
-                // Check if the first record's CustomerID is 121
-                if (FilteredOrders.OrderList[1].CustomerID != 95)
+                // Check if the first record's OrderID is 6
+                if (FilteredOrders.OrderList[1].OrderID != 6)
                 {
                     OK = false;
                 }

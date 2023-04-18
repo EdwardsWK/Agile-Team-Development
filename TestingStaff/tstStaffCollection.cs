@@ -223,13 +223,13 @@ namespace TestingStaff
             //check that the correct number of records are found
             if (FilteredStaff.Count == 2)
             {
-                //check that the first record is ID 41
-                if (FilteredStaff.StaffList[0].StaffID != 41)
+                //check that the first record is ID 10
+                if (FilteredStaff.StaffList[0].StaffID != 10)
                 {
                     OK = false;
                 }
-                //check that the first record is ID 42
-                if (FilteredStaff.StaffList[1].StaffID != 42)
+                //check that the first record is ID 11
+                if (FilteredStaff.StaffList[1].StaffID != 11)
                 {
                     OK = false;
                 }
