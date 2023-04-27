@@ -260,7 +260,7 @@ namespace TestingStock
             clsProductCollection filteredProducts = new clsProductCollection();
 
             // Apply a ProductName that doesnt exist 
-            filteredProducts.ReportByProductName("XXXXXXX");
+            filteredProducts.ReportByProductName("YYYYYY");
 
             // Test to see that there are no records
             Assert.AreEqual(0, filteredProducts.Count);
@@ -284,13 +284,13 @@ namespace TestingStock
             if (filteredProducts.Count == 2)
             {
                 // Check that the first record is ID 36
-                if (filteredProducts.productList[0].ProductID != 36)
+                if (filteredProducts.productList[0].ProductID != 29)
                 {
                     OK = false;
                 }
 
                 // Check that the first record is ID 37
-                if (filteredProducts.productList[1].ProductID != 37)
+                if (filteredProducts.productList[1].ProductID != 30)
                 {
                     OK = false;
                 }
