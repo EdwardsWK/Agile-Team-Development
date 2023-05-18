@@ -1,11 +1,9 @@
 # Agile Software Development Project - Admin Area
 
 ## Description
-
 This repository contains the code for my university project developed as part of the Agile Software Development unit. Our team, consisting of 6 members, collaborated to build the admin area of a website using Visual Studio, C#, ASP.NET, and a small amount of CSS for styling. As a team, we followed Agile principles and practices, including Test Driven Development (TDD).
 
 ## Project Overview
-
 The goal of the project was to create the admin area of a website. My role in the team was as the Scrum Master, responsible for facilitating the Agile processes and ensuring smooth collaboration. I specifically took charge of creating the Orders section of the website. This included developing the following pages:
 
 - `OrderConfirmDelete.aspx`: Page for confirming the deletion of an order.
