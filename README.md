@@ -29,13 +29,10 @@ To use the code in this repository, follow these steps:
 
 
 ## Contributions
-As this repository was developed as a team project for a university unit, the specific contributions of team members are not listed. However, I took the lead in developing the Orders section, as outlined above.
+As this repository was developed as a team project for a university unit, other contributors are not listed in accordance with local data protection and privacy regulations. However, I took the lead in developing the Orders section, as outlined above.
 
 
 ## License
 This project is licensed under the GNU General Public License v3.0 (GPL-3.0). You can find the full text of the license in the [LICENSE](LICENSE) file.
 
-
-## Contact
-If you have any further questions or inquiries about this project, please feel free to contact me at [your@email.com].
 Thank you for your interest in our Agile Software Development project!
