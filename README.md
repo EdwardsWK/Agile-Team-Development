@@ -35,4 +35,4 @@ As this repository was developed as a team project for a university unit, other 
 ## License
 This project is licensed under the GNU General Public License v3.0 (GPL-3.0). You can find the full text of the license in the [LICENSE](LICENSE) file.
 
-Thank you for your interest in our Agile Software Development project!
+#### Thank you for your interest in our Agile Software Development project!
